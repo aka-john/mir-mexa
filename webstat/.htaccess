@@ -1,0 +1,7 @@
+AuthType Basic
+AuthName "/www/meh.myapp.com.ua/webstat"
+AuthUserFile /hosting/kenwood/data/etc/89843222.passwd
+DirectoryIndex index.html
+<Limit GET POST>
+	require valid-user
+</Limit>

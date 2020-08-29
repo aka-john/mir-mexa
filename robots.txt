@@ -1,0 +1,26 @@
+User-agent: *
+Disallow: /assets/cache/
+Allow: /assets/cache/images/
+Disallow: /assets/docs/
+Disallow: /assets/export/
+Disallow: /assets/import/
+Disallow: /assets/modules/
+Disallow: /assets/plugins/
+Disallow: /assets/snippets/
+Disallow: /manager/
+Disallow: /assets/images/products/
+
+User-agent: Yandex
+Disallow: /assets/cache/
+Allow: /assets/cache/images/
+Disallow: /assets/docs/
+Disallow: /assets/export/
+Disallow: /assets/import/
+Disallow: /assets/modules/
+Disallow: /assets/plugins/
+Disallow: /assets/snippets/
+Disallow: /manager/
+Disallow: /assets/images/products/
+
+Host: mir-mexa.com
+Sitemap: http://mir-mexa.com/sitemap.xml
