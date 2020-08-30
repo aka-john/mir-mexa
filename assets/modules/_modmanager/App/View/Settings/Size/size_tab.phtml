@@ -1,0 +1,34 @@
+<div id="art_breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="<?php echo $this->factory('router')->generate('Main', 'index'); ?>">Главная</a></li>
+        <li class="active">Данные размеров</li>
+    </ul>
+</div>
+
+<div id="art_actionbar">
+    <button type="button" class="btn btn-success js_submitForm"><span class="glyphicon glyphicon-ok"></span> Обновить</button>
+    <button type="button" class="btn art_actionbar-scroll-top"><span class="glyphicon glyphicon-arrow-up"></span></button>
+</div>
+
+<ul class="nav nav-tabs" id="art_content-tab-navigation-nojs">
+    <li class="active"><a href="<?php echo $this->factory('router')->generate('Settings', 'size'); ?>">Размеры</a></li>
+    <li><a href="<?php echo $this->factory('router')->generate('Settings', 'city'); ?>">Города</a></li>
+</ul>
+
+<div class="art_help_block text-muted">
+    
+</div>
+
+<form action="<?php echo $this->factory('router')->generate('Settings', 'sizeUpdate'); ?>" method="post" class="art_data-grid-form">
+    <input type="hidden" name="product_id" value="1">
+    <div id="art_content-tab-content" class="tab-content">
+        <div class="tab-pane active" id="size">
+            <a class="btn btn-success js_art_add-collection" style="margin-bottom: 5px;" data-content="<?php echo htmlspecialchars($this->display('Settings/Size/size')) ; ?>"><span class="glyphicon glyphicon-plus"></span> Добавить размер</a>
+            <?php if ($this->sizes != null && count($this->sizes) > 0): ?>
+                <?php foreach ($this->sizes as $key => $value): ?>
+                    <?php echo $this->display('Settings/Size/size', array('size' => $value)) ; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+</form>

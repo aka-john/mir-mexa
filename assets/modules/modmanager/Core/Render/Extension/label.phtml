@@ -1,0 +1,41 @@
+<?php
+    $attr = '';
+    $id = '';
+    $class = '';
+    $style = '';
+    $color = 'default';
+    $label = '';
+?>
+
+<?php if (isset($params['attr']) && $params['attr'] != false): ?>
+    <?php foreach ($params['attr'] as $key => $value): ?>
+        <?php if ($value == ''): ?>
+            <?php $attr .= ' '.$value; ?> 
+        <?php else: ?>      
+            <?php $attr .= ' '.$key.'="'.$value.'" '; ?>
+        <?php endif; ?> 
+    <?php endforeach; ?>
+<?php endif; ?>
+
+<?php if (isset($params['class']) && $params['class'] != ''): ?>
+     <?php $class = $params['class']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['id']) && $params['id'] != ''): ?>
+     <?php $id = 'id="'.$params['id'].'"'; ?>
+<?php endif; ?>
+
+<?php if (isset($params['style']) && $params['style'] != ''): ?>
+     <?php $style = $params['style']; ?>
+<?php endif; ?>
+
+<?php if (count($params['array']) > 0): ?>
+    <?php foreach ($params['array'] as $key => $value): ?>
+        <?php if (isset($params['value']) && $params['value'] == $value['value']): ?>
+            <?php $label = $value['label']; ?>
+            <?php $color = $value['label_color'] != '' ? $value['label_color'] : $color; ?>
+        <?php endif; ?>  
+    <?php endforeach; ?>
+<?php endif; ?>
+
+<span class="label label-<?php echo $color; ?> <?php echo $class; ?>" <?php echo $id; ?> <?php echo $style; ?> <?php echo $attr; ?>><?php echo $label; ?></span>

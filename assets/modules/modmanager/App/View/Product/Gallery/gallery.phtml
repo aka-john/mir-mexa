@@ -1,0 +1,59 @@
+<div class="art_collection-group">
+    <div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">Название:</label>
+            <div class="col-sm-3">
+                <?php echo $this->getExtension('input', array(
+                            'name' => 'gallery['.(isset($this->gallery['id']) != '' ? $this->gallery['id'] : '__counter__').'][title]',
+                            'value' => $this->gallery['title'],
+                            'placeholder' => 'Название'
+                        )
+                    ); 
+                ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">Alt:</label>
+            <div class="col-sm-3">
+                <?php echo $this->getExtension('input', array(
+                            'name' => 'gallery['.(isset($this->gallery['id']) != '' ? $this->gallery['id'] : '__counter__').'][alt]',
+                            'value' => $this->gallery['alt'],
+                            'placeholder' => 'Alt'
+                        )
+                    ); 
+                ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">Позиция:</label>
+            <div class="col-sm-3">
+                <?php echo $this->getExtension('touchspin', array(
+                            'name' => 'gallery['.(isset($this->gallery['id']) != '' ? $this->gallery['id'] : '__counter__').'][position]',
+                            'value' => $this->gallery['position'],
+                            'placeholder' => 'Позиция'
+                        )
+                    ); 
+                ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">Изображение:</label>
+            <div class="col-sm-3">
+                <div style="padding-bottom: 10px;">
+                    <img src="<?php echo $this->gallery['image'] != '' ? '/assets/files/product/'.$this->gallery['product_id'].'/gallery/'.$this->gallery['image'] : 'http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image'; ?>" style="height:150px;" class="img-thumbnail" />
+                </div>
+                <?php echo $this->getExtension('input', array(
+                            'name' => 'gallery['.(isset($this->gallery['id']) != '' ? $this->gallery['id'] : '__counter__').'][image]',
+                            'type' => 'file',
+                            'placeholder' => 'Изображение'
+                        )
+                    ); 
+                ?>
+            </div>
+        </div>
+        <input type="hidden" name="<?php echo 'gallery['.(isset($this->gallery['id']) != '' ? $this->gallery['id'] : '__counter__').'][image]'; ?>" value="<?php echo $this->gallery['image']; ?>">
+        <a href="<?php echo $this->factory('router')->generate('Product', 'removeGalleryImage'); ?>" data="<?php echo $this->gallery['id']; ?>" class="btn btn-danger js_art_remove-collection" style="margin-bottom: 5px;"><span class="glyphicon glyphicon-trash"></span> Удалить изображение</a>
+        <a target="_blank" href="<?php echo '/assets/files/product/'.$this->gallery['product_id'].'/gallery/'.$this->gallery['image']; ?>" class="btn btn-primary" style="margin-bottom: 5px;"><span class="glyphicon glyphicon-file"></span> Просмотр</a>
+        <span class="text-muted"><?php if($this->gallery['image'] != ''): ?>Код файла: <?php echo $this->gallery['image']; ?><?php endif; ?></span>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<?xml version="1.0" standalone="yes"?>
+<config>
+    <notfound>
+        <ru>По вашему запросу ничего не найдено</ru>
+    </notfound>
+    <form_error_detect>
+        <ru>Обнаружены ошибки в заполнении данных. Проверьте все введенные данные на корректность</ru>
+    </form_error_detect>
+    <incorrect_email>
+        <ru>Email введен некорректно</ru>
+    </incorrect_email>
+    <incorrect_phone>
+        <ru>Телефон введен некорректно</ru>
+    </incorrect_phone>
+    <incorrect_budget>
+        <ru>Данные должны быть числового типа</ru>
+    </incorrect_budget>
+    <incorrect_timeline>
+        <ru>Данные должны быть числового типа</ru>
+    </incorrect_timeline>
+    <incorrect_domain>
+        <ru>Домен указан некорректно</ru>
+    </incorrect_domain>
+    <incorrect_null_field>
+        <ru>Поле должно быть заполнено</ru>
+    </incorrect_null_field>
+    <incorrect_password>
+        <ru>Пароль должен содержать не меньше 6ти символов</ru>
+    </incorrect_password>
+    <incorrect_login_exist>
+        <ru>Такой логин уже существует либо поле не заполнено</ru>
+    </incorrect_login_exist>
+    <incorrect_alias_exist>
+        <ru>Такой псевдоним уже существует либо поле не заполнено</ru>
+    </incorrect_alias_exist>
+    <review_successful_created>
+        <ru>Отзыв успешно создана</ru>
+    </review_successful_created>
+    <review_successful_updated>
+        <ru>Данные отзыва успешно обновлены</ru>
+    </review_successful_updated>
+    <filter_successful_created>
+        <ru>Фильтр успешно создана</ru>
+    </filter_successful_created>
+    <filter_successful_updated>
+        <ru>Данные фильтра успешно обновлены</ru>
+    </filter_successful_updated>
+    <shop_successful_created>
+        <ru>Заказ успешно создана</ru>
+    </shop_successful_created>
+    <shop_successful_updated>
+        <ru>Данные заказа успешно обновлены</ru>
+    </shop_successful_updated>
+    <product_successful_created>
+        <ru>Товар успешно создана</ru>
+    </product_successful_created>
+    <product_successful_updated>
+        <ru>Данные товара успешно обновлены</ru>
+    </product_successful_updated>
+    <subscriber_successful_created>
+        <ru>Подписчик успешно создана</ru>
+    </subscriber_successful_created>
+    <subscriber_successful_updated>
+        <ru>Данные подписчика успешно обновлены</ru>
+    </subscriber_successful_updated>
+    <letter_successful_created>
+        <ru>Шаблон успешно создана</ru>
+    </letter_successful_created>
+    <letter_successful_updated>
+        <ru>Данные шаблона успешно обновлены</ru>
+    </letter_successful_updated>
+    <seolink_successful_created>
+        <ru>Линоквка успешно создана</ru>
+    </seolink_successful_created>
+    <seolink_successful_updated>
+        <ru>Данные успешно обновлены</ru>
+    </seolink_successful_updated>
+</config>

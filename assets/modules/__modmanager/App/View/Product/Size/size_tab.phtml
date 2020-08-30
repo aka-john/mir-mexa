@@ -1,0 +1,62 @@
+<div class="col-md-6 column">
+	<a class="btn btn-success js_art_add-collection" style="margin-bottom: 5px;" data-content="<?php echo htmlspecialchars($this->display('Product/Size/size')) ; ?>"><span class="glyphicon glyphicon-plus"></span> Добавить размер</a>
+	<?php if ($this->sizes != null && count($this->sizes) > 0): ?>
+	    <?php foreach ($this->sizes as $key => $value): ?>
+	        <?php echo $this->display('Product/Size/size', array('size' => $value)) ; ?>
+	    <?php endforeach; ?>
+	<?php endif; ?>
+</div>
+
+<div class="col-md-4 column js_art-size-city-block" style="display: none;">
+    
+</div>
+
+<script>
+	$(document).ready(function() {
+		$(document).on("click", ".js_view-size-city", function(){
+			_this = $(this);
+	        $.ajax({
+	            url : "<?php echo $this->factory('router')->generate('Product', 'viewCitys'); ?>",
+	            type : "POST",
+	            data : {
+	                "size_id" : _this.parents('.art_collection-group').find('input[name=counter_id]').val()
+	            },
+	            cache : false,
+	            success : function(html) {
+	                console.log(html);
+	                $('.js_art-size-city-block').find('.message').remove();
+
+	                if (html == '') {
+	                	html = '<span class="message text-danger">У данного размера список цен по городам пуст</span>';
+	                }
+	                
+	                $('.js_art-size-city-block').show();
+	                $('.js_art-size-city-block').find('.art_collection-group').remove();
+	                $('.js_art-size-city-block').append(html);
+	            }
+	        });
+	        return false;
+		});
+
+		$(document).on("click", ".js_add-size-city", function(){
+			_this = $('.js_art-size-city-block');
+
+	        //$(this).parent('div').find('.js_view-size-city').trigger('click');
+
+			counter = _this.find('.art_collection-group').length;
+	        data = $(this).attr('data-content');
+	        data = data.replace(/__counter__/g, 'new_'+(counter+1));
+	        _this.append(data);
+	        _this.find('input[name=counter_id]').val(data);
+	        _this.find('.bootstrap_selectpicker').selectpicker();
+	        _this.find('.bootstrap_switch').bootstrapSwitch();
+	        $('.bootstrap_switch').on('switchChange.bootstrapSwitch', function(event, state) {
+	            if ($(this).prop("checked") == true) {
+	                $(this).val(1);
+	            } else { 
+	                $(this).val(0);
+	            }
+	        });
+		});
+	});
+</script>

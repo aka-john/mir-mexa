@@ -1,0 +1,79 @@
+<div class="art_collection-group">
+    <div>
+        <input type="hidden" name="counter_id" value="<?php echo $this->size['id']; ?>">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">ID:</label>
+            <div class="col-sm-7">
+                <span style="padding-top: 7px;display: block;"><?php echo $this->size['id']; ?></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Название:</label>
+            <div class="col-sm-7">
+                <?php echo $this->getExtension('selectpicker', array(
+                            'array'=>$this->factory('config')->loadConfigFile('filter')->getNode('size/item')->nodeToArray(), 
+                            'name' => 'size['.(isset($this->size['id']) != '' ? $this->size['id'] : '__counter__').'][size_id]',
+                            'selected' => $this->size['size_id']
+                        )
+                    ); 
+                ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Размер:</label>
+            <div class="col-sm-7">
+                <?php echo $this->getExtension('input', array(
+                            'name' => 'size['.(isset($this->size['id']) != '' ? $this->size['id'] : '__counter__').'][size]',
+                            'value' => $this->size['size'],
+                            'placeholder' => 'Размер'
+                        )
+                    ); 
+                ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Кол-во:</label>
+            <div class="col-sm-7">
+                <?php echo $this->getExtension('touchspin', array(
+                            'name' => 'size['.(isset($this->size['id']) != '' ? $this->size['id'] : '__counter__').'][amount]',
+                            'value' => $this->size['amount'],
+                            'placeholder' => 'Кол-во'
+                        )
+                    ); 
+                ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Цена:</label>
+            <div class="col-sm-7">
+                <?php echo $this->getExtension('touchspin', array(
+                            'name' => 'size['.(isset($this->size['id']) != '' ? $this->size['id'] : '__counter__').'][price]',
+                            'value' => $this->size['price'],
+                            'placeholder' => 'Цена'
+                        )
+                    ); 
+                ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Акционная цена:</label>
+            <div class="col-sm-7">
+                <?php echo $this->getExtension('touchspin', array(
+                            'name' => 'size['.(isset($this->size['id']) != '' ? $this->size['id'] : '__counter__').'][sale_price]',
+                            'value' => $this->size['sale_price'],
+                            'placeholder' => 'Акционная цена'
+                        )
+                    ); 
+                ?>
+            </div>
+        </div>
+        <div style="padding: 5px 0 5px 0;">
+            <span class="text-info">перед добавление цен по городу нажмите "Показать города"</span>
+        </div>
+        <div>
+            <a href="<?php echo $this->factory('router')->generate('Product', 'removeSize'); ?>" data="<?php echo $this->size['id']; ?>" class="btn btn-danger js_art_remove-collection" style="margin-bottom: 5px;"><span class="glyphicon glyphicon-trash"></span> Удалить размер</a>
+            <a class="btn btn-success js_add-size-city" style="margin-bottom: 5px;" data-content="<?php echo htmlspecialchars($this->display('Product/Size/city')) ; ?>"><span class="glyphicon glyphicon-plus"></span> Добавить город</a>
+            <a href="#" class="btn btn-primary js_view-size-city" style="margin-bottom: 5px;">Показать города <span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </div>
+</div>

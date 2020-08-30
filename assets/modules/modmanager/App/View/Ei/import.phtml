@@ -1,0 +1,64 @@
+<div id="art_breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="<?php echo $this->factory('router')->generate('Main', 'index'); ?>">Главная</a></li>
+        <li class="active">Импорт</li>
+    </ul>
+</div>
+
+<div id="art_actionbar">
+    <button type="button" class="btn btn-success js_submitForm"><span class="glyphicon glyphicon-import"></span> Импортировать</button>
+    <button type="button" class="btn art_actionbar-scroll-top"><span class="glyphicon glyphicon-arrow-up"></span></button>
+</div>
+
+<ul class="nav nav-tabs" id="art_content-tab-navigation-nojs">
+    <li><a href="<?php echo $this->factory('router')->generate('Ei', 'export'); ?>">Экспорт</a></li>
+    <li class="active"><a href="<?php echo $this->factory('router')->generate('Ei', 'import'); ?>">Импорт</a></li>
+    <li><a href="<?php echo $this->factory('router')->generate('Ei', 'stages'); ?>">Постепенная загрузка</a></li>
+</ul>
+
+<div class="art_help_block text-muted">
+    <p><span class="text-primary">По умолчанию файл импорта загружается из директории:</span> <?php echo CRM_GET_ROOT_PATH(); ?>/assets/export/import.xls</p>
+    <p><span class="text-primary">Изображения галереи и главное изображение по пути:</span> <?php echo CRM_GET_ROOT_PATH(); ?>/assets/export/images. Изображения должны именть уникальные имена</p>
+    <p><span class="text-primary">Формат ввода изображений галереи:</span> image1.jpeg||image1.jpeg где || - разделитель</p>
+    <p><span class="text-primary">Формат ввода размеров:</span> size_id=8;size=43;amount=1;price=33.00;||size_id=5;size=32;amount=1;price=21.00; где || - разделитель, size_id - id размера, size - числовая характеристика размера, amount - кол-во, price - цена</p>
+    <p><span class="text-primary">Разделители и поля размеров:</span></p>
+    <p>| - разделитель между городами</p>
+    <p>|| - разделитель между размерами</p>
+    <p>&& - разделитель между данными о размере и городами</p>
+    <p>city_id - id города(отображается в модуле Магазин->настройки->города)</p>
+    <p>price - цена</p>
+    <p>sale_price - цена распродажи</p>
+    <p>size_id - id размера</p>
+    <p>size - числовая характеристика размера</p>
+    <p>amount - кол-во товара</p>
+</div>
+
+<form action="<?php echo $this->factory('router')->generate('Ei', 'import'); ?>" method="post" enctype="multipart/form-data" class="art_data-grid-form">
+    <div id="art_content-tab-content" class="tab-content">
+        <div class="well pull-left">
+            <p>ID Размеров</p>
+            <?php foreach ($this->factory('config')->loadConfigFile('filter')->getNode('size/item')->nodeToArray() as $key => $value): ?>
+                <p><span class="text-primary"><?php echo $value['label']?></span> - Id <?php echo $value['value']?></p>
+            <?php endforeach; ?>
+        </div>
+        <div class="well pull-left" style="margin-left: 10px;">
+            <p>ID Фильтров</p>
+            <?php foreach ($this->filters as $key => $value): ?>
+                <p><span class="text-primary"><?php echo $value['name']?></span> - Id <?php echo $value['id']?></p>
+            <?php endforeach; ?>
+        </div>
+        <div class="pull-left" style="margin-left: 10px;">
+            <p>Подгрузка файла импорта</p>
+            <div class="form-group">
+                <div class="col-sm-15">
+                        <?php echo $this->getExtension('input', array(
+                                'name' => 'import',
+                                'type' => 'file'
+                            )
+                        ); 
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,67 @@
+<?xml version="1.0" standalone="yes"?>
+<config>
+  <type>
+    <item>
+      <label>Checkbox</label>
+      <value>1</value>
+    </item>
+    <item>
+      <label>Select</label>
+      <value>2</value>
+    </item>
+    <item>
+      <label>Color</label>
+      <value>3</value>
+    </item>
+  </type>
+  <size>
+    <item>
+      <label>XS</label>
+      <value>1</value>
+    </item>
+    <item>
+      <label>S</label>
+      <value>2</value>
+    </item>
+    <item>
+      <label>M</label>
+      <value>3</value>
+    </item>
+    <item>
+      <label>L</label>
+      <value>4</value>
+    </item>
+    <item>
+      <label>XL</label>
+      <value>5</value>
+    </item>
+    <item>
+      <label>2XL</label>
+      <value>6</value>
+    </item>
+    <item>
+      <label>3XL</label>
+      <value>7</value>
+    </item>
+    <item>
+      <label>4XL</label>
+      <value>8</value>
+    </item>
+    <item>
+      <label>5XL</label>
+      <value>9</value>
+    </item>
+    <item>
+      <label>6XL</label>
+      <value>10</value>
+    </item>
+    <item>
+      <label>7XL</label>
+      <value>11</value>
+    </item>
+    
+    
+    
+    
+  <item><label>32</label><value>13</value></item><item><label>34</label><value>14</value></item><item><label>36</label><value>15</value></item><item><label>38</label><value>16</value></item><item><label>40</label><value>17</value></item><item><label>42</label><value>18</value></item><item><label>44</label><value>19</value></item><item><label>46</label><value>20</value></item><item><label>50</label><value>21</value></item><item><label>52</label><value>22</value></item><item><label>54</label><value>23</value></item><item><label>56</label><value>24</value></item><item><label>58</label><value>25</value></item><item><label>60</label><value>26</value></item><item><label>62</label><value>27</value></item><item><label>64</label><value>28</value></item><item><label>65/100</label><value>29</value></item><item><label>65/105</label><value>30</value></item><item><label>65/110</label><value>31</value></item><item><label>65/115</label><value>32</value></item><item><label>65/120</label><value>33</value></item><item><label>65/95</label><value>34</value></item><item><label>75/100</label><value>35</value></item><item><label>75/105</label><value>36</value></item><item><label>75/110</label><value>37</value></item><item><label>75/115</label><value>38</value></item><item><label>75/120</label><value>39</value></item><item><label>75/125</label><value>40</value></item><item><label>85/100</label><value>41</value></item><item><label>85/105</label><value>42</value></item><item><label>85/110</label><value>43</value></item><item><label>85/95</label><value>44</value></item><item><label>90/100</label><value>45</value></item><item><label>90/105</label><value>46</value></item><item><label>90/110</label><value>47</value></item><item><label>90/115</label><value>48</value></item><item><label>90/120</label><value>49</value></item><item><label>90/130</label><value>50</value></item><item><label>90/135</label><value>51</value></item><item><label>90/140</label><value>52</value></item><item><label>90/145</label><value>53</value></item><item><label>90/95</label><value>54</value></item><item><label>90/125</label><value>55</value></item><item><label>110/100</label><value>56</value></item><item><label>110/105</label><value>57</value></item><item><label>110/110</label><value>58</value></item><item><label>110/115</label><value>59</value></item><item><label>110/120</label><value>60</value></item><item><label>110/95</label><value>61</value></item><item><label>110/125</label><value>62</value></item><item><label>110/130</label><value>63</value></item><item><label>110/135</label><value>64</value></item><item><label>110/140</label><value>65</value></item><item><label>110/145</label><value>66</value></item><item><label>110/150</label><value>67</value></item><item><label>90/90</label><value>68</value></item><item><label>120/115</label><value>69</value></item><item><label>120/120</label><value>70</value></item><item><label>120/125</label><value>71</value></item><item><label>120/130</label><value>72</value></item><item><label>120/135</label><value>73</value></item><item><label>120/140</label><value>74</value></item><item><label>85/115</label><value>75</value></item><item><label>90/90</label><value>76</value></item><item><label>6XL</label><value>77</value></item><item><label>100/176</label><value>78</value></item><item><label>100/182</label><value>79</value></item><item><label>104/176</label><value>80</value></item><item><label>104/182</label><value>81</value></item><item><label>104/188</label><value>82</value></item><item><label>108/176</label><value>83</value></item><item><label>108/182</label><value>84</value></item><item><label>108/188</label><value>85</value></item><item><label>112/182</label><value>86</value></item><item><label>112/188</label><value>87</value></item><item><label>116/188</label><value>88</value></item><item><label>120/176</label><value>89</value></item><item><label>92/176</label><value>90</value></item><item><label>92/182</label><value>91</value></item><item><label>96/176</label><value>92</value></item><item><label>96/182</label><value>93</value></item><item><label>66</label><value>94</value></item><item><label>68</label><value>95</value></item><item><label>70</label><value>96</value></item><item><label>72</label><value>97</value></item><item><label>112/176</label><value>98</value></item><item><label>120/182</label><value>99</value></item><item><label>128/176</label><value>100</value></item><item><label>128/182</label><value>101</value></item><item><label>132/182</label><value>102</value></item><item><label>136/182</label><value>103</value></item><item><label>116/176</label><value>104</value></item><item><label>116/182</label><value>105</value></item><item><label>96/188</label><value>106</value></item><item><label>&#x431;/&#x440;</label><value>107</value></item><item><label>57</label><value>108</value></item><item><label>59</label><value>109</value></item><item><label>100/188</label><value>110</value></item><item><label>120/188</label><value>111</value></item><item><label>124/176</label><value>112</value></item><item><label>124/182</label><value>113</value></item><item><label>132/176</label><value>114</value></item><item><label>136/176</label><value>115</value></item><item><label>48</label><value>116</value></item><item><label>8XL</label><value>117</value></item><item><label>9XL</label><value>118</value></item><item><label>10XL</label><value>119</value></item><item><label>11XL</label><value>120</value></item><item><label>12XL</label><value>121</value></item><item><label>6,5</label><value>122</value></item><item><label>7</label><value>123</value></item><item><label>7,5</label><value>124</value></item><item><label>8</label><value>125</value></item><item><label>8,5</label><value>126</value></item><item><label>9</label><value>127</value></item><item><label>9,5</label><value>128</value></item><item><label>10</label><value>129</value></item><item><label>10,5</label><value>130</value></item><item><label>11</label><value>131</value></item><item><label>60/95</label><value>132</value></item><item><label>90/160</label><value>133</value></item></size>
+</config>

@@ -1,0 +1,303 @@
+html, body {
+    width:100%;
+    height:100%;
+    margin: 0;
+    padding: 0;
+}
+#art_footer {
+
+}
+#art_conteiner {
+    height: 100%;
+}
+.js_grid-sort-table {
+    cursor: pointer;
+}
+.table-bordered>thead>tr>th, .table-bordered>thead>tr>td {
+    border-bottom-width: 1px;
+}
+.bootstrap-select.btn-group, .bootstrap-select.btn-group[class*="span"] {
+    margin-bottom: 0px;
+}
+#art_top-toolbar {
+    margin-bottom: 0px;
+}
+#art_top-toolbar .toolbar-logged-user {
+    color: white;
+}
+#art_top-toolbar .toolbar-logged-action {
+    color: red;
+}
+#art_container {
+    width: 100%;
+}
+#art_left-toolbar {
+    width: 135px;
+    height:100%;
+    min-height:100%;
+    background-color: #222;
+    display: inline-block;
+    float: left;
+}
+#art_left-toolbar .toolbar-element {
+    height: 30px;
+    margin: 10px auto;
+}
+#art_left-toolbar .toolbar-element .art_big-glyphicon-label {
+    padding: 5px;
+    float: left;
+}
+#art_left-toolbar .active {
+    color: #fcd403!important;
+}
+#art_left-toolbar .toolbar-element a {
+    color: #ffffff;
+}
+#art_left-toolbar .toolbar-element a:hover {
+    color: #fcd403;
+}
+#art_left-toolbar .art_left-toolbar-hider span:hover {
+    color: #fcd403;
+}
+#art_left-toolbar .toolbar-element .glyphicon {
+    padding: 5px;
+    float: left;
+}
+#art_content {
+    display: inline-block;
+    padding: 5px 5px 50px 5px;
+    width: calc(100% - 140px);
+}
+#art_content .art_help_block {
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#art_actionbar {
+    padding-bottom: 5px;
+}
+.art_actionbar-scrollable {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    padding: 5px 0 0 5px;
+    width: 100%;
+    background-color: rgba(34, 34, 34, 0.79);
+    margin-left: -5px;
+}
+#art_content-tab-content .tab-pane {
+    padding: 5px;
+}
+#art_lang-block {
+    margin-right: 10px;
+}
+#art_lang-block .dropdown-menu {
+    width: auto;
+}
+#art_lang-block .dropdown-menu .active a {
+    background-color: #C5C5C5;
+}
+#art_breadcrumb .breadcrumb {
+    margin-bottom: 5px;
+    padding: 8px 0px;
+    background-color: #fff;
+}
+.art_actionbar-scroll-top {
+    display: none;
+}
+.art_actionbar-scroll-top span {
+    margin-left: -2px;
+}
+#art_content-tab-navigation .art_help-block {
+    margin-top: 5px;
+    padding: 5px;
+}
+.nav .art_help-block {
+    margin-top: 5px;
+    padding: 5px;
+}
+.art_flash-alert {
+    margin-bottom: 0px; 
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    text-align: center;
+}
+.art_flash-alert .close {
+    margin-top: -3px;
+}
+.art_left-toolbar-hider {
+    height: 20px;
+    margin-top: 5px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+}
+#art_top-toolbar .toolbar-user {
+    margin-right: 15px;
+}
+.art_left-actionbar-hider {
+    height: 35px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    background-color: #222;
+}
+.art_left-actionbar-hider .glyphicon {
+    margin-top: 6px;
+}
+#art_left-actions {
+    width: 200px;
+    height: 100vh;
+    background-color: #222;
+    display: inline-block;
+    float: left;
+}
+#art_left-actions ul li a {
+    color: #ffffff;
+}
+#art_left-actions ul:first-child {
+    margin-top: 40px;
+}
+.art_data-grid-form table tbody tr td {
+    vertical-align: middle;
+}
+.art_data-grid-form table tbody tr td:last-child {
+    width: 190px;
+    text-align:center;
+
+}
+.art_data-grid-form table thead th {
+    vertical-align: middle;
+}
+.art_data-grid-form .art_data-grid-pagin .pagination {
+    margin: 0px;
+}
+.art_data-grid-form .table {
+    margin-bottom: 10px;
+}
+.art_data-grid-form .art_data-grid-view span {
+    margin-right: 10px;
+}
+.art_data-grid-form .art_thumbnail {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0px;
+}
+.art_data-grid-form .art_thumbnail_text {
+    margin-top: 14px;
+    display: block;
+    margin-left: 55px;
+}
+.art_data-grid-form .help-block {
+    margin-bottom: 0px;
+}
+.art_signin-block {
+    width:400px;
+    padding-top: 50px;
+}
+.art_signin-block form .art_login-btn {
+   margin-top: 10px;
+}
+.art_signin-block .art_login-logo {
+   text-align: center;
+   margin-bottom: 10px;
+}
+.art_remove-popover {
+    display: inline-block;
+}
+.art_remove-popover button {
+    width: 100px;
+}
+.art_remove-popover button:last-child {
+    margin-left: 35px;
+}
+.art_noborders {
+	border: 0;
+}
+.art_noborders tbody tr {
+	border: 0;
+}
+.art_noborders tbody tr td {
+	border: 0;
+}
+.art_noborders tbody tr td:first-child {
+	min-width: 200px;
+}
+.art_noborders tbody tr td label{
+	padding-top: 5px;
+}
+.art_data-grid-form .form-group .control-label {
+    text-align: left;
+}
+.art_data-grid-form .form-group .bootstrap-switch {
+    margin-left: 15px;
+}
+.art_page-notfound {
+    background-color: #d2d9e1;
+    text-align: center;
+    height: 100vh;
+}
+.art_page-notfound img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.art_notice-warning-block {
+    display: none;
+}
+.art_collection-group {
+    padding-top: 10px;
+}
+.art_commercial_calendar table tbody tr {
+    height: 60px;
+}
+.art_commercial_calendar table tbody tr td {
+    /*width: 250px;*/
+}
+.art_commercial_calendar .calendar_action_bar {
+    margin-top: -20px;
+    margin-left: -8px;
+}
+.art_commercial_calendar .calendar_date .label {
+    display: inline-block;
+    float: left;
+    width: 25px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+
+}
+.art_commercial_calendar .calendar_date_action .label {
+    display: inline-block;
+    float: left;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+.art_commercial_calendar .calendar_date_action button {
+    padding: 0px;
+    border: 0px;
+}
+.art_commercial_calendar .calendar_date,
+.art_commercial_calendar .calendar_date_action{
+    display: inline-block;
+}
+.art_commercial_calendar .calendar_date_fields {
+    display: inline-block;
+    font-size: 12px;
+}
+.art_commercial_calendar table tbody tr td:last-child {
+    text-align: inherit;
+}
+.art_big-glyphicon {
+    font-size: 18px;
+}
+.art_ei-stages-block li{
+    list-style-type: none;
+    margin-left: -40px;
+    padding: 0px 0px 5px 0px;
+}

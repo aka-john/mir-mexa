@@ -1,0 +1,299 @@
+<div class="form-group">
+    <label class="col-sm-2 control-label">Публикация:</label>
+    <div class="col-sm-3" style="margin-left: -15px;">
+        <?php echo $this->getExtension('switch', array(
+                    'name' => 'published',
+                    'value' => $this->product['published']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">В Поиск:</label>
+    <div class="col-sm-3" style="margin-left: -15px;">
+        <?php echo $this->getExtension('switch', array(
+                    'name' => 'searchable',
+                    'value' => (!isset($this->product['searchable']) ? 1 : $this->product['searchable'])
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Фиксированная цена:</label>
+    <div class="col-sm-3" style="margin-left: -15px;">
+        <?php echo $this->getExtension('switch', array(
+                    'name' => 'fix_price',
+                    'value' => (!isset($this->product['fix_price']) ? 1 : $this->product['fix_price'])
+                )
+            ); 
+        ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">Имя:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'name',
+                    'id' => 'alias_generate',
+                    'value' => $this->product['name']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Псевдоним:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'alias',
+                    'value' => $this->product['alias']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Позиция:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('touchspin', array(
+                    'name' => 'position',
+                    'value' => $this->product['position']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Артикул:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'sku',
+                    'value' => $this->product['sku']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Категории:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('selectpicker', array(
+                    'array'=>$this->categorys, 
+                    'required' => true, 
+                    'name' => 'categorys[]',
+                    'search' => true,
+                    'selected' => $this->selected_categorys,
+                    'label_name' => 'pagetitle,catalog_name',
+                    'value_name' => 'id'
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Дата создания:</label>
+    <div class="col-sm-2">
+        <?php echo $this->getExtension('datetime', array(
+                    'name' => 'created_at',
+                    'value' => $this->product['created_at']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Материал:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'material',
+                    'value' => $this->product['material']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<!--<div class="form-group">
+    <label class="col-sm-2 control-label">Цена:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('touchspin', array(
+                    'name' => 'price',
+                    'value' => $this->product['price']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Старая цена:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('touchspin', array(
+                    'name' => 'old_price',
+                    'value' => $this->product['old_price']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Акционная цена:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('touchspin', array(
+                    'name' => 'sale_price',
+                    'value' => $this->product['sale_price']
+                )
+            ); 
+        ?>
+    </div>
+</div>-->
+<div class="form-group">
+    <label class="col-sm-2 control-label">Статус:</label>
+    <div class="col-sm-2">
+        <?php echo $this->getExtension('selectpicker', array(
+                    'array'=>$this->factory('config')->loadConfigFile('product')->getNode('status/item')->nodeToArray(), 
+                    'required' => true, 
+                    'name' => 'status',
+                    'selected' => $this->product['status']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<!--
+<div class="form-group">
+    <label class="col-sm-2 control-label">Наличие:</label>
+    <div class="col-sm-2">
+        <?php echo $this->getExtension('selectpicker', array(
+                    'array'=>$this->factory('config')->loadConfigFile('product')->getNode('presence/item')->nodeToArray(), 
+                    'required' => true, 
+                    'name' => 'presence',
+                    'selected' => $this->product['presence']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+-->
+<div class="form-group">
+    <label class="col-sm-2 control-label">Добавочные товары:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'additional',
+                    'class' => 'mm-ac-filter_values-'.$this->product['id'],
+                    'value' => $this->product['additional']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">В группу:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'product_group',
+                    'class' => 'mm-ac-filter_values-'.$this->product['id'].'_group',
+                    'value' => $this->product['product_group']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Видео:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('textarea', array(
+                    'name' => 'video',
+                    'editor' => false,
+                    'attr' => array('rows' => 5),
+                    'value' => $this->product['video']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Описание:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('textarea', array(
+                    'name' => 'description',
+                    'editor' => false,
+                    'attr' => array('rows' => 5),
+                    'value' => $this->product['description']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Вводный текст:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('textarea', array(
+                    'name' => 'introtext',
+                    'editor' => false,
+                    'attr' => array('rows' => 5),
+                    'value' => $this->product['introtext']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Контент:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('textarea', array(
+                    'name' => 'content',
+                    'editor' => false,
+                    'attr' => array('rows' => 5),
+                    'value' => $this->product['content']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Изображение:</label>
+    <div class="col-sm-3">
+        <div style="padding-bottom: 10px;">
+            <img src="<?php echo $this->product['image'] != '' ? '/assets/files/product/'.$this->product['id'].'/image/'.$this->product['image'] : 'http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image'; ?>" style="height:150px;" class="img-thumbnail" />
+        </div>
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'image',
+                    'type' => 'file',
+                    'placeholder' => 'Изображение'
+                )
+            ); 
+        ?>
+        <div style="margin-top: 10px;">
+            <input type="hidden" name="image" value="<?php echo $this->product['image']; ?>">
+            <a href="<?php echo $this->factory('router')->generate('Product', 'removeProductImage'); ?>" data="<?php echo $this->product['id']; ?>" class="btn btn-danger js_art_remove-image" style="margin-bottom: 5px;"><span class="glyphicon glyphicon-trash"></span> Удалить изображение</a>
+            <a target="_blank" href="<?php echo '/assets/files/product/'.$this->product['id'].'/image/'.$this->product['image']; ?>" class="btn btn-primary" style="margin-bottom: 5px;"><span class="glyphicon glyphicon-file"></span> Просмотр</a>
+            <span class="text-muted pull-left js_file-name"><?php if($this->product['image'] != ''): ?>Код файла: <?php echo $this->product['image']; ?><?php endif; ?></span>
+        </div> 
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('.mm-ac-filter_values-<?php echo $this->product['id']; ?>').mmAutocomplete({
+        color: 'primary',
+        symbol_min: 1,
+        ajax_url: "<?php echo $this->factory('router')->generate('Product', 'autocompleteProduct'); ?>",
+        autocomplete: true,
+        duplicate: false,
+        add_new: false,
+        prefix: "new_",
+        tokens: '<?php echo $this->product['additional_values']; ?>'
+    });
+    
+    $('.mm-ac-filter_values-<?php echo $this->product['id'].'_group'; ?>').mmAutocomplete({
+        color: 'primary',
+        symbol_min: 1,
+        ajax_url: "<?php echo $this->factory('router')->generate('Product', 'autocompleteProductGroup'); ?>",
+        autocomplete: true,
+        duplicate: false,
+        add_new: false,
+        prefix: "new_",
+        tokens: '<?php echo $this->product['product_group_values']; ?>'
+    });
+</script>

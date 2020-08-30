@@ -1,0 +1,6 @@
+<a class="btn btn-success js_art_add-collection" style="margin-bottom: 5px;" data-content="<?php echo htmlspecialchars($this->display('Product/Gallery/gallery')) ; ?>"><span class="glyphicon glyphicon-plus"></span> Добавить изображение</a>
+<?php if ($this->gallerys != null && count($this->gallerys) > 0): ?>
+    <?php foreach ($this->gallerys as $key => $value): ?>
+        <?php echo $this->display('Product/Gallery/gallery', array('gallery' => $value)) ; ?>
+    <?php endforeach; ?>
+<?php endif; ?>

@@ -1,0 +1,5 @@
+<?php if ($this->product_categorys != null && count($this->product_categorys) > 0): ?>
+    <?php foreach ($this->product_categorys as $key => $value): ?>
+        <?php echo $this->display('Product/Filter/filter', array('row' => $value, 'iteration' => $key)) ; ?>
+    <?php endforeach; ?>
+<?php endif; ?>

@@ -1,0 +1,6 @@
+<a class="btn btn-success js_art_add-collection" style="margin-bottom: 5px;" data-content="<?php echo htmlspecialchars($this->display('Shop/Product/product', array('value' => ''))) ; ?>"><span class="glyphicon glyphicon-plus"></span> Добавить товар к заказу</a>
+<?php if ($this->orders != null && count($this->orders) > 0): ?>
+    <?php foreach ($this->orders as $key => $value): ?>
+        <?php echo $this->display('Shop/Product/product', array('row' => $value, 'iteration' => $key)) ; ?>
+    <?php endforeach; ?>
+<?php endif; ?>

@@ -1,0 +1,39 @@
+<tr id="<?php echo $this->shop['id']; ?>" class="<?php echo $this->factory('config')->loadConfigFile('shop')->getNode('status/item/value[.="'.$this->shop['status'].'"]/parent::*')->getVal('label_color') ?>">
+    <td>
+        <a href="<?php echo $this->factory('router')->generate('Shop', 'edit', array('shop_id' => $this->shop['id'])); ?>"><?php echo $this->shop['id']; ?></a>
+    </td>
+    <td>
+        <?php echo $this->shop['number']; ?>
+    </td>
+    <td>
+        <?php echo $this->shop['order_price']; ?>
+    </td>
+    <td class="text-center">
+        <?php echo $this->getExtension('label', array( 
+                    'array' => $this->factory('config')->loadConfigFile('shop')->getNode('delivery_method/item')->nodeToArray(), 
+                    'value' => $this->shop['delivery_method']
+                )
+            ); 
+        ?>
+    </td>
+    <td class="text-center">
+        <?php echo $this->getExtension('label', array( 
+                    'array' => $this->factory('config')->loadConfigFile('shop')->getNode('pay_method/item')->nodeToArray(), 
+                    'value' => $this->shop['pay_method']
+                )
+            ); 
+        ?>
+    </td>
+    <td class="text-center">
+        <?php echo $this->getExtension('label', array( 
+                    'array' => $this->factory('config')->loadConfigFile('shop')->getNode('status/item')->nodeToArray(), 
+                    'value' => $this->shop['status']
+                )
+            ); 
+        ?>
+    </td>
+    <td class="text-center">
+        <a href="<?php echo $this->factory('router')->generate('Shop', 'edit', array('shop_id' => $this->shop['id'])); ?>" class="btn btn-primary tooltip-top" title="Редактировать"><span class="glyphicon glyphicon-edit"></span></a>
+        <button type="button" class="btn btn-danger popover-dismiss" data-toggle="popover" data-placement="left" data-content="<div class='art_remove-popover'><button type='button' class='btn btn-success pull-left ajax_art-remove-resource' data='<?php echo $this->shop['id']; ?>'>Да</button><button type='button' class='btn btn-danger pull-right'>Нет</button></div>" title="Вы действительно хотите удалить?"><span class="glyphicon glyphicon-remove"></span></button>
+    </td>
+</tr>

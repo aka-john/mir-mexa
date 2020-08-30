@@ -1,0 +1,113 @@
+<?php
+    $request = isset($params['name']) ? $this->factory('request')->getRequest($params['name']) : '';
+    
+    $attr = '';
+    $style = '';
+    $selected = '0';
+    $id = '';
+    $name = '';
+    $class = 'form-control bootstrap_switch ';
+    $type = 'checkbox';
+    $val = isset($params['name']) && $request != '' ? 'value="'.$this->factory('request')->getRequest($params['name']).'"' : 'value="0"';
+    $on_color = 'success';
+    $off_color = 'danger';
+    $on_text = 'Да';
+    $off_text = 'Нет';
+    $label_text = '';
+?>
+
+<?php if (isset($params['attr']) && $params['attr'] != false): ?>
+    <?php foreach ($params['attr'] as $key => $value): ?>
+        <?php if (is_numeric($key)): ?>
+            <?php $attr .= ' '.$value; ?> 
+        <?php else: ?>      
+            <?php $attr .= ' '.$key.'="'.$value.'" '; ?>
+        <?php endif; ?> 
+    <?php endforeach; ?>
+<?php endif; ?>
+
+<?php if (isset($params['class']) && $params['class'] != ''): ?>
+     <?php $class .= $params['class']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['id']) && $params['id'] != ''): ?>
+     <?php $id = 'id="'.$params['id'].'"'; ?>
+<?php endif; ?>
+
+<?php if (isset($params['style']) && $params['style'] != ''): ?>
+     <?php $style = $params['style']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['name']) && $params['name'] != ''): ?>
+     <?php $name = 'name="'.$params['name'].'"'; ?>
+<?php endif; ?>
+
+<?php if (isset($params['name']) && $params['name'] != ''): ?>
+     <?php $name = 'name="'.$params['name'].'"'; ?>
+<?php endif; ?>
+
+<?php if (isset($params['value']) && $params['value'] != ''): ?>
+     <?php $selected = $params['value']; ?>
+     <?php $val = $val == 'value="0"' ? 'value="'.$params['value'].'"' : $val; ?>
+<?php endif; ?>
+
+<?php if (isset($params['type']) && $params['type'] != ''): ?>
+     <?php $type = $params['type']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['on_color']) && $params['on_color'] != ''): ?>
+     <?php $on_color = $params['on_color']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['off_color']) && $params['off_color'] != ''): ?>
+     <?php $off_color = $params['off_color']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['on_text']) && $params['on_text'] != ''): ?>
+     <?php $on_text = $params['on_text']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['off_text']) && $params['off_text'] != ''): ?>
+     <?php $off_text = $params['off_text']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['label_text']) && $params['label_text'] != ''): ?>
+     <?php $label_text = 'data-label-text="'.$params['label_text'].'"'; ?>
+<?php endif; ?>
+
+<?php if (isset($params['errors']) && array_key_exists($params['name'], $params['errors'])): ?>
+    <div class="has-error">
+        <input 
+            type="<?php echo $type; ?>" 
+            class="<?php echo $class; ?>" 
+            <?php echo $id; ?> 
+            <?php echo $name; ?> 
+            <?php echo $style; ?> 
+            <?php echo $attr; ?> 
+            <?php echo $val; ?> 
+            data-on-color="<?php echo $on_color ?>" 
+            data-off-color="<?php echo $off_color ?>" 
+            data-on-text="<?php echo $on_text ?>" 
+            data-off-text="<?php echo $off_text ?>" 
+            <?php echo $selected == 1 ? 'checked' : ''; ?>
+            <?php echo $label_text ?>
+        >
+        <span class="help-block text-danger"><?php echo $params['errors'][$params['name']]; ?></span>
+    </div>
+<?php else: ?>
+    <input 
+        type="<?php echo $type; ?>" 
+        class="<?php echo $class; ?>" 
+        <?php echo $id; ?> 
+        <?php echo $name; ?> 
+        <?php echo $style; ?> 
+        <?php echo $attr; ?> 
+        <?php echo $val; ?> 
+        data-on-color="<?php echo $on_color ?>" 
+        data-off-color="<?php echo $off_color ?>" 
+        data-on-text="<?php echo $on_text ?>" 
+        data-off-text="<?php echo $off_text ?>" 
+        <?php echo $selected == 1 ? 'checked' : ''; ?>
+        <?php echo $label_text ?>
+    >
+<?php endif; ?>

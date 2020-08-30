@@ -1,0 +1,81 @@
+<div class="form-group">
+    <label class="col-sm-2 control-label">Активность:</label>
+    <div class="col-sm-3" style="margin-left: -15px;">
+        <?php echo $this->getExtension('switch', array(
+                    'name' => 'active',
+                    'value' => $this->link['active']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Url:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'url',
+                    'value' => $this->link['url']
+                )
+            ); 
+        ?>
+    </div>
+</div> 
+<div class="form-group">
+    <label class="col-sm-2 control-label">Title:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'title',
+                    'value' => $this->link['title']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Description:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('textarea', array(
+                    'name' => 'description',
+                    'editor' => false,
+                    'attr' => array('rows' => 5),
+                    'value' => $this->link['description']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Keywords:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('textarea', array(
+                    'name' => 'keywords',
+                    'editor' => false,
+                    'attr' => array('rows' => 5),
+                    'value' => $this->link['keywords']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Robots:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'robots',
+                    'value' => $this->link['robots']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Canonical:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'canonical',
+                    'value' => $this->link['canonical']
+                )
+            ); 
+        ?>
+    </div>
+</div>

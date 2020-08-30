@@ -1,0 +1,24 @@
+<tr id="<?php echo $this->subscriber['id']; ?>" class="<?php echo $this->factory('config')->loadConfigFile('mailer')->getNode('subscriber_status/item/value[.="'.$this->subscriber['status'].'"]/parent::*')->getVal('label_color') ?>">
+    <td>
+        <a href="<?php echo $this->factory('router')->generate('Mailer', 'edit', array('subscriber_id' => $this->subscriber['id'])); ?>"><?php echo $this->subscriber['id']; ?></a>
+    </td>
+    <td>
+        <?php echo $this->subscriber['name']; ?>
+    </td>
+    <td>
+        <?php echo $this->subscriber['email']; ?>
+    </td>
+    <td><?php echo $this->subscriber['created_at']; ?></td>
+    <td class="text-center">
+        <?php echo $this->getExtension('label', array( 
+                    'array' => $this->factory('config')->loadConfigFile('mailer')->getNode('subscriber_status/item')->nodeToArray(), 
+                    'value' => $this->subscriber['status']
+                )
+            ); 
+        ?>
+    </td>
+    <td class="text-center">
+        <a href="<?php echo $this->factory('router')->generate('Mailer', 'editSubscriber', array('subscriber_id' => $this->subscriber['id'])); ?>" class="btn btn-primary tooltip-top" title="Редактировать"><span class="glyphicon glyphicon-edit"></span></a>
+        <button type="button" class="btn btn-danger popover-dismiss" data-toggle="popover" data-placement="left" data-content="<div class='art_remove-popover'><button type='button' class='btn btn-success pull-left ajax_art-remove-resource' data='<?php echo $this->subscriber['id']; ?>'>Да</button><button type='button' class='btn btn-danger pull-right'>Нет</button></div>" title="Вы действительно хотите удалить?"><span class="glyphicon glyphicon-remove"></span></button>
+    </td>
+</tr>

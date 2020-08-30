@@ -1,0 +1,123 @@
+<div id="art_breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="<?php echo $this->factory('router')->generate('Main', 'index'); ?>">Главная</a></li>
+        <li class="active">Все товары</li>
+    </ul>
+</div>
+
+<div id="art_actionbar">
+    <a href="<?php echo $this->factory('router')->generate('Seolink', 'create'); ?>" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Добавить линковку</a>
+    <button type="button" class="btn art_actionbar-scroll-top"><span class="glyphicon glyphicon-arrow-up"></span></button>
+</div>
+
+<div class="art_help_block text-muted">
+    
+</div>
+
+<div id="art_content-tab-content" class="tab-content">
+    <form action="<?php echo $this->factory('router')->generate('Seolink', 'index'); ?>" method="post" class="art_data-grid-form">
+        <input type="hidden" name="grid_sort_by" value="<?php echo $this->factory('request')->getRequest('grid_sort_by'); ?>"/>
+        <input type="hidden" name="grid_sort_dir" value="<?php echo $this->factory('request')->getRequest('grid_sort_dir'); ?>"/>
+        <table class="table table-bordered table-condensed table-hover pull-left">
+            <thead>
+                <th name="id">
+                    <div class="pull-left">ID</div> 
+                    <div class="pull-right">
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-down" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'id' && $this->factory('request')->getRequest('grid_sort_by') == 'DESC'): ?>style="color:#428bca;"<?php endif; ?> data="DESC"></span> 
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-up" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'id' && $this->factory('request')->getRequest('grid_sort_by') == 'ASC'): ?>style="color:#428bca;"<?php endif; ?> data="ASC"></span>
+                    </div>
+                </th>
+                <th name="url">
+                    <div class="pull-left">Url</div>
+                    <div class="pull-right">
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-down" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'url' && $this->factory('request')->getRequest('grid_sort_by') == 'DESC'): ?>style="color:#428bca;"<?php endif; ?> data="DESC"></span> 
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-up" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'url' && $this->factory('request')->getRequest('grid_sort_by') == 'ASC'): ?>style="color:#428bca;"<?php endif; ?> data="ASC"></span>
+                    </div>
+                </th>
+                <th name="active">
+                    <div class="pull-left">Url</div>
+                    <div class="pull-right">
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-down" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'active' && $this->factory('request')->getRequest('grid_sort_by') == 'DESC'): ?>style="color:#428bca;"<?php endif; ?> data="DESC"></span> 
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-up" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'active' && $this->factory('request')->getRequest('grid_sort_by') == 'ASC'): ?>style="color:#428bca;"<?php endif; ?> data="ASC"></span>
+                    </div>
+                </th>
+                <th class="text-center">Функции</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width: 65px;">
+                        <?php echo $this->getExtension('input', array(
+                                    'name' => 'filter[id]',
+                                    'value' => $this->factory('request')->getRequestObject('filter')->id
+                                )
+                            ); 
+                        ?>
+                    </td>
+                    <td>
+                        <?php echo $this->getExtension('input', array( 
+                                    'name' => 'filter[url]',
+                                    'value' => $this->factory('request')->getRequestObject('filter')->url
+                                )
+                            ); 
+                        ?>
+                    </td>
+                    <td>
+                        <?php echo $this->getExtension('selectpicker', array(
+                                    'array'=>$this->factory('config')->loadConfigFile('seolink')->getNode('active/item')->nodeToArray(), 
+                                    'required' => false, 
+                                    'name' => 'filter[active]',
+                                    'selected' => $this->factory('request')->getRequestObject('filter')->active
+                                )
+                            ); 
+                        ?>
+                    </td>
+                    <td>
+                        <button class="btn btn-default" type="submit">Фильтровать</button>
+                        <a href="<?php echo $this->factory('router')->generate('Seolink', 'index'); ?>" class="btn btn-default tooltip-top" title="Сбросить"><span class="glyphicon glyphicon-refresh"></span></a>
+                    </td>
+                </tr>
+                <?php if ($this->links != null && count($this->links) > 0): ?>
+                    <?php foreach ($this->links as $key => $value): ?>
+                        <?php echo $this->display('Seolink/index_item', array('link' => $value)) ; ?>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr><td class="js_grid-count-th"><?php echo $this->factory('translator')->getTranslate('notfound')?></td></tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+        <div class="pull-left art_data-grid-pagin">
+            <?php echo $this->pagination; ?>
+        </div>
+        <div class="pull-right art_data-grid-view">
+            <span>выбрано <?php echo $this->factory('request')->getRequest('grid_display_view'); ?> из <?php echo $this->factory('request')->getRequest('grid_total_view'); ?></span>
+            <?php echo $this->getExtension('selectpicker', array(
+                        'array'=>$this->factory('config')->loadConfigFile('grid')->getNode('display/item')->nodeToArray(), 
+                        'required' => true, 
+                        'name' => 'grid_display',
+                        'class' => 'js_grid-change-display', 
+                        'width' => '190px',
+                        'selected' => $this->factory('request')->getRequest('grid_display')
+                    )
+                ); 
+            ?>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(document).on("click", ".ajax_art-remove-resource", function(){
+        _this = $(this);
+        $.ajax({
+            url : "<?php echo $this->factory('router')->generate('Seolink', 'remove'); ?>",
+            type : "POST",
+            data : {
+                "link_id" : _this.attr('data')
+            },
+            cache : false,
+            success : function(html) {
+                $('tr[id='+_this.attr('data')+']').remove();
+            }
+        });
+        return false;
+    });
+</script>

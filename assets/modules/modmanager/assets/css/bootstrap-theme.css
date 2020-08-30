@@ -1,0 +1,24 @@
+.badge-danger {
+    background-color: #d9534f;
+}
+.badge-info {
+    background-color: #5bc0de;
+}
+.badge-success {
+    background-color: #5cb85c;
+}
+.badge-default {
+    background-color: #777;
+}
+.badge-primary {
+    background-color: #428bca;
+}
+.badge-warning {
+    background-color: #f0ad4e;
+}
+.btn-noradius {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+

@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default toolbar" style="border-radius: 0px;" id="art_top-toolbar" role="navigation">
+    <div class="navbar-header">
+        <a href="<?php echo $this->factory('router')->generate('product', 'index'); ?>" class="navbar-brand"><?php echo $this->factory('config')->getVal('app', 'site_name') ?></a>
+    </div>
+    <div class="collapse navbar-collapse pull-left" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li <?php if(CRM_MODULE_CONTROLLER() == 'product'): ?>class="active"<?php endif;?>>
+                <a href="<?php echo $this->factory('router')->generate('product', 'index'); ?>">Товары</a>
+            </li>
+            <li <?php if(CRM_MODULE_CONTROLLER() == 'shop'): ?>class="active"<?php endif;?>>
+                <a href="<?php echo $this->factory('router')->generate('shop', 'index'); ?>">Магазин</a>
+            </li>
+            <li <?php if(CRM_MODULE_CONTROLLER() == 'filter'): ?>class="active"<?php endif;?>>
+                <a href="<?php echo $this->factory('router')->generate('filter', 'index'); ?>">Фильтры</a>
+            </li>
+            <li <?php if(CRM_MODULE_CONTROLLER() == 'review'): ?>class="active"<?php endif;?>>
+                <a href="<?php echo $this->factory('router')->generate('review', 'index'); ?>">Отзывы</a>
+            </li>
+            <li <?php if(CRM_MODULE_CONTROLLER() == 'ei'): ?>class="active"<?php endif;?>>
+                <a href="<?php echo $this->factory('router')->generate('ei', 'index'); ?>">Импорт/экспорт</a>
+            </li>
+            <li <?php if(CRM_MODULE_CONTROLLER() == 'mailer'): ?>class="active"<?php endif;?>>
+                <a href="<?php echo $this->factory('router')->generate('mailer', 'indexSubscriber'); ?>">Рассылка</a>
+            </li>
+            <li <?php if(CRM_MODULE_CONTROLLER() == 'seolink'): ?>class="active"<?php endif;?>>
+                <a href="<?php echo $this->factory('router')->generate('seolink', 'index'); ?>">SEO линковка</a>
+            </li>
+            <li <?php if(CRM_MODULE_CONTROLLER() == 'settings'): ?>class="active"<?php endif;?>>
+                <a href="<?php echo $this->factory('router')->generate('settings', 'size'); ?>">Настройки</a>
+            </li>
+        </ul>
+    </div>
+</nav>

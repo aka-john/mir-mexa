@@ -1,0 +1,67 @@
+<div id="art_breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="<?php echo $this->factory('router')->generate('Main', 'index'); ?>">Главная</a></li>
+        <li class="active">Импорт</li>
+    </ul>
+</div>
+
+<div id="art_actionbar">
+    <button type="button" class="btn btn-success js_submitForm"><span class="glyphicon glyphicon-import"></span> Импортировать</button>
+    <button type="button" class="btn art_actionbar-scroll-top"><span class="glyphicon glyphicon-arrow-up"></span></button>
+</div>
+
+<ul class="nav nav-tabs" id="art_content-tab-navigation-nojs">
+    <li><a href="<?php echo $this->factory('router')->generate('Ei', 'export'); ?>">Экспорт</a></li>
+    <li><a href="<?php echo $this->factory('router')->generate('Ei', 'import'); ?>">Импорт</a></li>
+    <li class="active"><a href="<?php echo $this->factory('router')->generate('Ei', 'stages'); ?>">Постепенная загрузка</a></li>
+</ul>
+
+<div class="art_help_block text-muted">
+    <p><span class="text-primary">Файлы будут обрабатыватся сервером раз в несколько минут</p>
+</div>
+
+<div class="tab-pane col-md-10 column">
+    <div class="col-md-4 column">
+        <form action="<?php echo $this->factory('router')->generate('Ei', 'splitExcel'); ?>" method="post" enctype="multipart/form-data" class="art_data-grid-form">
+            <div class="pull-left" style="margin-left: 10px;">
+                <p>Подгрузка файла для разбивки</p>
+                <div class="form-group">
+                    <div class="col-sm-15">
+                            <?php echo $this->getExtension('input', array(
+                                    'name' => 'import',
+                                    'type' => 'file'
+                                )
+                            ); 
+                        ?>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-th"></span> Разбить файл</button>
+                <button type="submit" class="btn btn-warning js_refresh-ie-stage-files"><span class="glyphicon glyphicon-refresh"></span> Обновить лист</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6 column">
+        <p><span class="text-primary">В импорте сейчас:</span></p>
+        <ul class="art_ei-stages-block">
+            <?php echo $this->in_import; ?>
+        </ul>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(document).on("click", ".js_refresh-ie-stage-files", function(){
+            _this = $(this);
+            $.ajax({
+                url : "<?php echo $this->factory('router')->generate('Ei', 'refreshStages'); ?>",
+                type : "POST",
+                cache : false,
+                success : function(html) {
+                    $('.art_ei-stages-block').html(html);
+                }
+            });
+            return false;
+        });
+    });
+</script>
+

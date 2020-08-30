@@ -1,0 +1,35 @@
+<tr id="<?php echo $this->product['id']; ?>" class="<?php echo $this->factory('config')->loadConfigFile('product')->getNode('status/item/value[.="'.$this->product['status'].'"]/parent::*')->getVal('label_color') ?>">
+    <td class="text-center">
+        <img src="<?php echo $this->product['image'] != '' ? '/assets/files/product/'.$this->product['id'].'/image/'.$this->product['image'] : 'http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image'; ?>" style="height:50px;" class="img-thumbnail" />
+    </td>
+    <td>
+        <a href="<?php echo $this->factory('router')->generate('Product', 'edit', array('product_id' => $this->product['id'])); ?>"><?php echo $this->product['id']; ?></a>
+    </td>
+    <td>
+        <a href="<?php echo $this->factory('router')->generate('Product', 'edit', array('product_id' => $this->product['id'])); ?>"><?php echo $this->product['name']; ?></a>
+    </td>
+    <td>
+        <?php echo $this->product['sku']; ?>
+    </td>
+    <td class="text-center">
+        <?php echo $this->getExtension('label', array( 
+                    'array' => $this->factory('config')->loadConfigFile('product')->getNode('published/item')->nodeToArray(), 
+                    'value' => $this->product['published']
+                )
+            ); 
+        ?>
+    </td>
+    <td class="text-center">
+        <?php echo $this->getExtension('label', array( 
+                    'array' => $this->factory('config')->loadConfigFile('product')->getNode('status/item')->nodeToArray(), 
+                    'value' => $this->product['status']
+                )
+            ); 
+        ?>
+    </td>
+    <td class="text-center">
+        <a href="<?php echo $this->modx->makeUrl((int)$this->product['modx_id']).$this->product['alias']; ?>" target="_blank" class="btn btn-info tooltip-top" title="Просмотр"><span class="glyphicon glyphicon-arrow-right"></span></a>
+        <a href="<?php echo $this->factory('router')->generate('Product', 'edit', array('product_id' => $this->product['id'])); ?>" class="btn btn-primary tooltip-top" title="Редактировать"><span class="glyphicon glyphicon-edit"></span></a>
+        <button type="button" class="btn btn-danger popover-dismiss" data-toggle="popover" data-placement="left" data-content="<div class='art_remove-popover'><button type='button' class='btn btn-success pull-left ajax_art-remove-resource' data='<?php echo $this->product['id']; ?>'>Да</button><button type='button' class='btn btn-danger pull-right'>Нет</button></div>" title="Вы действительно хотите удалить?"><span class="glyphicon glyphicon-remove"></span></button>
+    </td>
+</tr>

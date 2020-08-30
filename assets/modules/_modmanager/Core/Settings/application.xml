@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<config>
+    <app>
+        <site_name>ModManager</site_name>
+        <version>0.1</version>
+        <salt>kDGgH2aicBJ5OphnwM0Mz4H3RpvjVS</salt>
+        <product_template>5</product_template>
+        <category_template>7</category_template>
+        <catalog_template>6</catalog_template>
+        <product_resource>5</product_resource>
+    </app>
+    <smtp>
+        <server>mail.artjoker.ua</server>
+        <port>25</port>
+        <login>art.digital@artjoker.ua</login>
+        <pass>y5krl9m5</pass>
+        <sender>Отправитель письма</sender>
+        <ssl>0</ssl>
+        <tls>0</tls>
+    </smtp>
+</config>

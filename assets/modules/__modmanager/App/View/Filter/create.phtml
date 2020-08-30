@@ -1,0 +1,29 @@
+<div id="art_breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="<?php echo $this->factory('router')->generate('Main', 'index'); ?>">Главная</a></li>
+        <li><a href="<?php echo $this->factory('router')->generate('Filter', 'index'); ?>">Все фильтры</a></li>
+        <li class="active">Создание фильтра</li>
+    </ul>
+</div>
+
+<div id="art_actionbar">
+    <a href="<?php echo CRM_GET_REFERER_URL(); ?>" class="btn btn-danger"><span class="glyphicon glyphicon-arrow-left"></span> Назад</a>
+    <button type="button" class="btn btn-success js_submitForm"><span class="glyphicon glyphicon-plus"></span> Добавить</button>
+    <button type="button" class="btn art_actionbar-scroll-top"><span class="glyphicon glyphicon-arrow-up"></span></button>
+</div>
+
+<ul class="nav nav-tabs" id="art_content-tab-navigation">
+    <li class="active"><a href="#filter">Информация</a></li>
+    <li><a href="#value">Значения фильтра</a></li>
+</ul>
+
+<form action="<?php echo $this->factory('router')->generate('Filter', 'create'); ?>" method="POST" enctype="multipart/form-data" class="form-horizontal art_data-grid-form">
+    <div id="art_content-tab-content" class="tab-content">
+        <div class="tab-pane active" id="filter">
+            <?php echo $this->display('Filter/filter_tab', array('filter' => $this->factory('request')->getRequest())) ; ?>
+        </div>
+        <div class="tab-pane" id="value">
+            <?php echo $this->display('Filter/Value/filter_value_tab') ; ?>
+        </div>
+    </div>
+</form>

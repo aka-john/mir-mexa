@@ -1,0 +1,314 @@
+<div id="art_breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="<?php echo $this->factory('router')->generate('Main', 'index'); ?>">Главная</a></li>
+        <li class="active">Экспорт</li>
+    </ul>
+</div>
+
+<div id="art_actionbar">
+    <button type="button" class="btn btn-success js_submitForm"><span class="glyphicon glyphicon-export"></span> Экспортировать</button>
+    <button type="button" class="btn art_actionbar-scroll-top"><span class="glyphicon glyphicon-arrow-up"></span></button>
+</div>
+
+<ul class="nav nav-tabs" id="art_content-tab-navigation-nojs">
+    <li class="active"><a href="<?php echo $this->factory('router')->generate('Ei', 'export'); ?>">Экспорт</a></li>
+    <li><a href="<?php echo $this->factory('router')->generate('Ei', 'import'); ?>">Импорт</a></li>
+    <li><a href="<?php echo $this->factory('router')->generate('Ei', 'stages'); ?>">Постепенная загрузка</a></li>
+</ul>
+
+<div class="art_help_block text-muted">
+    Выберите поля, которые необходимо экспортировать
+</div>
+
+<form action="<?php echo $this->factory('router')->generate('Ei', 'export'); ?>" method="post" class="art_data-grid-form">
+    <input type="hidden" name="ei[id]" value="1">
+    <div id="art_content-tab-content" class="tab-content">
+        <div class="tab-pane active" id="export">
+            <table class="table art_noborders pull-left" style="width: 300px;">
+                <tbody>
+                    <tr><td><span class="text-info">Поля товара</span></td></tr>
+                    <tr>
+                        <td><label class="control-label">Название:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[name]',
+                                        'value' => 1
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Позиция:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[position]',
+                                        'value' => 1
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Описание:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[description]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Вводный текст:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[introtext]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Контент:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[content]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Публикация:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[published]',
+                                        'value' => 1
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Статус:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[status]',
+                                        'value' => 1
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Артикул:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[sku]',
+                                        'value' => 1
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <!--
+                    <tr>
+                        <td><label class="control-label">Кол-во:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[amount]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    -->
+                    <tr>
+                        <td><label class="control-label">В поиске:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[searchable]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Добавочные товары:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[additional]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Видео:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[video]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <!--
+                    <tr>
+                        <td><label class="control-label">Наличие:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[presence]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    -->
+                    <tr>
+                        <td><label class="control-label">Материал:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[material]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <tr><td><span class="text-info">Метаданные</span></td></tr>
+                    <tr>
+                        <td><label class="control-label">Title:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[meta_title]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Description:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[meta_description]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Keywords:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[meta_keywords]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Robots:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[meta_robots]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Canonical:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[meta_canonical]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Analytics:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[meta_analytics]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <table class="table art_noborders pull-left" style="width: 300px; margin-left: 15px;">
+                <tbody>
+                    <tr>
+                        <td><label class="control-label">Коллекция(м/ж):</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[collection]',
+                                        'value' => 1
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <input type="hidden" name="ei[category]" value="1">
+                    <tr>
+                        <td><label class="control-label">Группа:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[group]',
+                                        'value' => 0
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                        <td><label class="control-label">Изображение:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[image]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr> -->
+                    <tr>
+                        <td><label class="control-label">Галерея:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[gallery]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <tr><td><span class="text-info">Размеры</span></td></tr>
+                    <tr>
+                        <td><label class="control-label">Размеры:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[sizes]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                    <tr><td><span class="text-info">Фильтры</span></td></tr>
+                    <tr>
+                        <td><label class="control-label">Фильтры:</label></td>
+                        <td>
+                            <?php echo $this->getExtension('switch', array(
+                                        'name' => 'ei[filters]'
+                                    )
+                                ); 
+                            ?>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>

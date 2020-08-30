@@ -1,0 +1,152 @@
+<?php
+    $request = isset($params['name']) ? $this->factory('request')->getRequest($params['name']) : '';
+    $attr = '';
+    $style = '';
+    $selected = isset($params['name']) && $request != '' ? $this->factory('request')->getRequest($params['name']) : '';
+    $id = '';
+    $name = '';
+    $width = 'data-width="100%"';
+    $class = 'bootstrap_selectpicker show-tick ';
+    $option_attr = '';
+    $color = 'data-style="btn-default"';
+    $search = 'data-live-search="false"';
+    $placeholder = '';
+    $value_name = 'value';
+    $label_name = 'label';
+    $option_label = '';
+?>
+
+<?php if (isset($params['attr']) && $params['attr'] != false): ?>
+    <?php foreach ($params['attr'] as $key => $value): ?>
+        <?php if (is_numeric($key)): ?>
+            <?php $attr .= ' '.$value; ?> 
+        <?php else: ?>      
+            <?php $attr .= ' '.$key.'="'.$value.'" '; ?>
+        <?php endif; ?> 
+    <?php endforeach; ?>
+<?php endif; ?>
+
+<?php if (isset($params['color']) && $params['color'] != ''): ?>
+    <?php $color = 'data-style="btn-'.$params['color'].'" '; ?>
+<?php endif; ?>
+
+<?php if (isset($params['search']) && $params['search'] != ''): ?>
+    <?php $search = 'data-live-search="'.$params['search'].'" '; ?>
+<?php endif; ?>
+
+<?php if (isset($params['class']) && $params['class'] != ''): ?>
+    <?php $class .= $params['class']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['id']) && $params['id'] != ''): ?>
+    <?php $id = 'id="'.$params['id'].'"'; ?>
+<?php endif; ?>
+
+<?php if (isset($params['width']) && $params['width'] != ''): ?>
+    <?php $width = 'data-width="'.$params['width'].'" '; ?>
+<?php endif; ?>
+
+<?php if (isset($params['style']) && $params['style'] != ''): ?>
+    <?php $style = $params['style']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['name']) && $params['name'] != ''): ?>
+    <?php $name = 'name="'.$params['name'].'"'; ?>
+<?php endif; ?>
+
+<?php if (isset($params['placeholder']) && $params['placeholder'] != ''): ?>
+    <?php $placeholder = 'placeholder="'.$params['placeholder'].'"'; ?>
+<?php endif; ?>
+
+<?php if (isset($params['value_name']) && $params['value_name'] != ''): ?>
+    <?php $value_name = $params['value_name']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['label_name']) && $params['label_name'] != ''): ?>
+    <?php 
+        $explode = explode(',', $params['label_name']);
+        $label_name = $explode[0]; 
+        $label_second_name = $explode[1]; 
+    ?>
+<?php endif; ?>
+
+<?php if (isset($params['errors']) && array_key_exists($params['name'], $params['errors'])): ?>
+    <div class="has-error">
+        <select 
+            class="<?php echo $class; ?>" 
+            <?php echo $id; ?> 
+            <?php echo $name; ?> 
+            <?php echo $style; ?> 
+            <?php echo $attr; ?> 
+            <?php echo $color; ?> 
+            <?php echo $search; ?> 
+            <?php echo $width; ?>
+            <?php echo $placeholder; ?>
+        >
+            <?php if (isset($params['required']) && $params['required'] == false): ?>
+                <option value="all"> - </option>
+            <?php endif; ?>
+
+            <?php if (count($params['array']) > 0): ?>
+                <?php foreach ($params['array'] as $key => $value): ?>
+
+                    <?php if (isset($params['selected']) && is_array($params['selected'])): ?>
+                        <?php if (array_search($value[$value_name], $params['selected']) !== false): ?>
+                            <?php $selected = 'selected'; ?> 
+                        <?php else: ?>      
+                            <?php $selected = ''; ?> 
+                        <?php endif; ?> 
+                    <?php else: ?>      
+                        <?php if (isset($params['selected']) && $params['selected'] == $value[$value_name]): ?>
+                            <?php $selected = 'selected'; ?> 
+                        <?php else: ?>      
+                            <?php $selected = ''; ?> 
+                        <?php endif; ?>  
+                    <?php endif; ?>
+
+                    <option value="<?php echo $value[$value_name]; ?>" <?php echo $selected; ?> ><?php echo ($label_second_name != '' ? $value[$label_second_name].' / ' : '').$value[$label_name]; ?></option>
+
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </select>
+        <span class="help-block text-danger"><?php echo $params['errors'][$params['name']]; ?></span>
+    </div>
+<?php else: ?>
+    <select 
+        class="<?php echo $class; ?>" 
+        <?php echo $id; ?> 
+        <?php echo $name; ?> 
+        <?php echo $style; ?> 
+        <?php echo $attr; ?> 
+        <?php echo $color; ?> 
+        <?php echo $search; ?> 
+        <?php echo $width; ?>
+        <?php echo $placeholder; ?>
+    >
+        <?php if (isset($params['required']) && $params['required'] == false): ?>
+            <option value="all"> - </option>
+        <?php endif; ?>
+
+        <?php if (count($params['array']) > 0): ?>
+            <?php foreach ($params['array'] as $key => $value): ?>
+
+                <?php if (isset($params['selected']) && is_array($params['selected'])): ?>
+                    <?php if (array_search($value[$value_name], $params['selected']) !== false): ?>
+                        <?php $selected = 'selected'; ?> 
+                    <?php else: ?>      
+                        <?php $selected = ''; ?> 
+                    <?php endif; ?> 
+                <?php else: ?>      
+                    <?php if (isset($params['selected']) && $params['selected'] == $value[$value_name]): ?>
+                        <?php $selected = 'selected'; ?> 
+                    <?php else: ?>      
+                        <?php $selected = ''; ?> 
+                    <?php endif; ?>  
+                <?php endif; ?> 
+
+                <option value="<?php echo $value[$value_name]; ?>" <?php echo $selected; ?> ><?php echo ($label_second_name != '' ? $value[$label_second_name].' / ' : '').$value[$label_name]; ?></option>
+
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </select>
+<?php endif; ?>

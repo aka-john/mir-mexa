@@ -1,0 +1,61 @@
+.mm-ac-list {
+	list-style: none;
+	padding: 10px;
+	height: auto;
+	max-height: 200px;
+	overflow: overlay;
+	border: 1px solid #cccccc;
+	display: none;
+	z-index: 999;
+	position: absolute;
+	background-color: white;
+	border-top: 0px;
+	margin-top: -4px;
+}
+.mm-ac-list li{
+	padding: 2px;
+	color: #979797;
+	cursor: pointer;
+	border-top: 0px;
+	margin-top: -2px;
+}
+.mm-ac-list li:hover{
+	color: #d43f3a;
+}
+.mm-ac-list .mm-ac-message{
+	padding: 10px 2px 2px 2px;
+	color: #d43f3a;
+	text-align: center;
+	border-top: 1px solid #cccccc;
+	font-size: 14px;
+}
+.mm-ac-block {
+	display: inline-block;
+	height: auto;
+}
+.mm-ac-block-token {
+	float: left;
+	margin: 3px 3px 0 0;
+	height: 18px
+}
+.mm-ac-block-token .glyphicon{
+	top: 2px;
+}
+.mm-ac-input {
+	min-width: 60px;
+	width: 100%;
+	position: relative;
+	vertical-align: top;
+	background-color: transparent;
+	color: #979797;
+	float: left;
+}
+.mm-ac-remove-token:hover {
+	color: #dddddd;
+}
+.mm-ac-token-posl:hover {
+	color: #dddddd;
+}
+.mm-ac-token-posr:hover {
+	color: #dddddd;
+}

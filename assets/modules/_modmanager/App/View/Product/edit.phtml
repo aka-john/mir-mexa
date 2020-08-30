@@ -1,0 +1,47 @@
+<div id="art_breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="<?php echo $this->factory('router')->generate('Main', 'index'); ?>">Главная</a></li>
+        <li><a href="<?php echo $this->factory('router')->generate('Product', 'index'); ?>">Все товары</a></li>
+        <li class="active">Редактирование товара</li>
+    </ul>
+</div>
+
+<div id="art_actionbar">
+    <a href="<?php echo CRM_GET_REFERER_URL(); ?>" class="btn btn-danger"><span class="glyphicon glyphicon-arrow-left"></span> Назад</a>
+    <button type="button" class="btn btn-success js_submitForm"><span class="glyphicon glyphicon-ok"></span> Обновить</button>
+    <a href="<?php echo $this->modx->makeUrl((int)$this->product['modx_id']).$this->product['alias']; ?>" target="_blank" class="btn btn-info"><span class="glyphicon glyphicon-arrow-right"></span> Просмотр</a>
+    <button type="button" class="btn art_actionbar-scroll-top"><span class="glyphicon glyphicon-arrow-up"></span></button>
+</div>
+
+<ul class="nav nav-tabs" id="art_content-tab-navigation">
+    <li class="active"><a href="#product">Информация</a></li>
+    <li><a href="#gallery">Галерея</a></li>
+    <li><a href="#filter">Фильтры</a></li>
+    <li><a href="#size">Размеры</a></li>
+    <li><a href="#seo">Сео</a></li>
+    <li class="art_help-block"><span class="text-muted">ID - <?php echo $this->product['id']; ?></span></li>
+</ul>
+
+<div class="art_help_block text-muted">
+    <p><span class="text-primary">При отсутствии у размера прикрепленных к нему городов с ценами будут братся цена и акционная цена размера</p>
+</div>
+
+<form action="<?php echo $this->factory('router')->generate('Product', 'edit', array('product_id' => $this->product['id'])); ?>" method="POST" enctype="multipart/form-data" class="form-horizontal art_data-grid-form">
+    <div id="art_content-tab-content" class="tab-content">
+        <div class="tab-pane active" id="product">
+            <?php echo $this->display('Product/product_tab', array('product' => $this->product)) ; ?>
+        </div>
+        <div class="tab-pane" id="gallery">
+            <?php echo $this->display('Product/Gallery/gallery_tab') ; ?>
+        </div>
+        <div class="tab-pane" id="filter" style="width: 800px;">
+            <?php echo $this->filters; ?>
+        </div>
+        <div class="tab-pane col-md-10 column" id="size">
+            <?php echo $this->display('Product/Size/size_tab') ; ?>
+        </div>
+        <div class="tab-pane" id="seo">
+            <?php echo $this->display('Product/Seo/seo_tab') ; ?>
+        </div>
+    </div>
+</form>

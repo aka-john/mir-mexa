@@ -1,0 +1,47 @@
+<div class="art_collection-group">
+    <div class="form-group">
+        <label class="col-sm-1 control-label">ID:</label>
+        <div class="col-sm-3">
+            <?php echo $this->row['id']; ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">Название:</label>
+        <div class="col-sm-3">
+            <?php echo $this->getExtension('input', array(
+                        'name' => 'filter_values['.(isset($this->row['id']) ? $this->row['id'] : '__counter__').'][value]',
+                        'value' => $this->row['value'],
+                        'placeholder' => 'Название'
+                    )
+                ); 
+            ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">Позиция:</label>
+        <div class="col-sm-3">
+            <?php echo $this->getExtension('input', array(
+                        'name' => 'filter_values['.(isset($this->row['id']) ? $this->row['id'] : '__counter__').'][position]',
+                        'value' => $this->row['position'],
+                        'placeholder' => 'Позиция'
+                    )
+                ); 
+            ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">Параметр:</label>
+        <div class="col-sm-3">
+            <?php echo $this->getExtension('input', array(
+                        'name' => 'filter_values['.(isset($this->row['id']) ? $this->row['id'] : '__counter__').'][param]',
+                        'value' => $this->row['param'],
+                        'placeholder' => 'Параметр'
+                    )
+                ); 
+            ?>
+        </div>
+    </div>
+    <?php if(!in_array($this->row['id'], array(82,83))):?>
+        <a href="<?php echo $this->factory('router')->generate('Filter', 'removeValue', array('value_id' => $this->row['id'])); ?>" data="<?php echo $this->row['id']; ?>" class="btn btn-danger js_art_remove-collection" style="margin-bottom: 5px;"><span class="glyphicon glyphicon-trash"></span> Удалить значение</a>
+    <?php endif; ?>
+</div>

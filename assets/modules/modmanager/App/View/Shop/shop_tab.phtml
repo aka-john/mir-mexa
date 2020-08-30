@@ -1,0 +1,170 @@
+<div class="form-group">
+    <label class="col-sm-2 control-label">Номер:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'number',
+                    'value' => $this->shop['number']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Транзакция:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'transaction',
+                    'value' => $this->shop['transaction']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Дата создания:</label>
+    <div class="col-sm-2">
+        <?php echo $this->getExtension('datetime', array(
+                    'name' => 'created_at',
+                    'value' => $this->shop['created_at']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Цена заказа:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('touchspin', array(
+                    'name' => 'order_price',
+                    'value' => $this->shop['order_price']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Цена Доставки:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('touchspin', array(
+                    'name' => 'delivery_price',
+                    'value' => $this->shop['delivery_price']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Пользователь:</label>
+    <div class="col-sm-2">
+        <?php echo $this->getExtension('selectpicker', array(
+                    'array'=>$this->users, 
+                    'required' => true, 
+                    'name' => 'user_id',
+                    'selected' => $this->shop['user_id'],
+                    'label_name' => 'fullname',
+                    'value_name' => 'internalKey'
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Статус:</label>
+    <div class="col-sm-2">
+        <?php echo $this->getExtension('selectpicker', array(
+                    'array'=>$this->factory('config')->loadConfigFile('shop')->getNode('status/item')->nodeToArray(), 
+                    'required' => true, 
+                    'name' => 'status',
+                    'selected' => $this->shop['status']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Вид доставки:</label>
+    <div class="col-sm-2">
+        <?php echo $this->getExtension('selectpicker', array(
+                    'array'=>$this->factory('config')->loadConfigFile('shop')->getNode('delivery_method/item')->nodeToArray(), 
+                    'required' => true, 
+                    'name' => 'delivery_method',
+                    'selected' => $this->shop['delivery_method']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Вид оплаты:</label>
+    <div class="col-sm-2">
+        <?php echo $this->getExtension('selectpicker', array(
+                    'array'=>$this->factory('config')->loadConfigFile('shop')->getNode('pay_method/item')->nodeToArray(), 
+                    'required' => true, 
+                    'name' => 'pay_method',
+                    'selected' => $this->shop['pay_method']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Город доставки новой почты:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'np_stock',
+                    'value' => $this->shop['np_stock']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Адрес отделения новой почты:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'np_address',
+                    'value' => $this->shop['np_address']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Город(Самовывоз):</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('selectpicker', array(
+                    'array'=>$this->fitting_citys, 
+                    'required' => false, 
+                    'name' => 'fitting_city',
+                    'selected' => $this->shop['fitting_city'],
+                    'label_name' => 'pagetitle',
+                    'value_name' => 'id'
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Адрес(Самовывоз):</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'fitting_shop',
+                    'value' => $this->shop['fitting_shop']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Комментарий:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('textarea', array(
+                    'name' => 'comment',
+                    'editor' => false,
+                    'attr' => array('rows' => 5),
+                    'value' => $this->shop['comment']
+                )
+            ); 
+        ?>
+    </div>
+</div>

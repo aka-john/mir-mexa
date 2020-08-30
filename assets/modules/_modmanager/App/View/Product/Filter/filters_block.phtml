@@ -1,0 +1,20 @@
+<div class="form-group">
+    <div class="col-sm-6">
+        <p class="text-muted"><?php echo $this->filter['name']; ?></p>
+        <input type="text" class="form-control mm-ac-filter_values-<?php echo $this->filter['id']; ?>-<?php echo $this->filter['modx_id']; ?>" name="filter_values[<?php echo $this->filter['modx_id']; ?>][<?php echo $this->filter['id']; ?>]" filter="<?php echo $this->filter['id']; ?>" value=""/>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('.mm-ac-filter_values-<?php echo $this->filter['id']; ?>-<?php echo $this->filter['modx_id']; ?>').mmAutocomplete({
+        color: 'primary',
+        symbol_min: 1,
+        ajax_url: "<?php echo $this->factory('router')->generate('Product', 'autocompleteProductFilter'); ?>",
+        autocomplete: true,
+        duplicate: true,
+        add_new: true,
+        prefix: "new_",
+        tokens: '<?php echo $this->filter_values; ?>'
+    });
+</script>
+

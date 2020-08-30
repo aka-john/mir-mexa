@@ -1,0 +1,25 @@
+<div id="art_breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="<?php echo $this->factory('router')->generate('Main', 'index'); ?>">Главная</a></li>
+        <li><a href="<?php echo $this->factory('router')->generate('Mailer', 'indexSubscriber'); ?>">Все подписчики</a></li>
+        <li class="active">Создание подписчика</li>
+    </ul>
+</div>
+
+<div id="art_actionbar">
+    <a href="<?php echo CRM_GET_REFERER_URL(); ?>" class="btn btn-danger"><span class="glyphicon glyphicon-arrow-left"></span> Назад</a>
+    <button type="button" class="btn btn-success js_submitForm"><span class="glyphicon glyphicon-plus"></span> Добавить</button>
+    <button type="button" class="btn art_actionbar-scroll-top"><span class="glyphicon glyphicon-arrow-up"></span></button>
+</div>
+
+<ul class="nav nav-tabs" id="art_content-tab-navigation">
+    <li class="active"><a href="#subscriber">Информация</a></li>
+</ul>
+
+<form action="<?php echo $this->factory('router')->generate('Mailer', 'createSubscriber'); ?>" method="POST" enctype="multipart/form-data" class="form-horizontal art_data-grid-form">
+    <div id="art_content-tab-content" class="tab-content">
+        <div class="tab-pane active" id="subscriber">
+            <?php echo $this->display('Mailer/subscriber_tab', array('subscriber' => $this->factory('request')->getRequest())) ; ?>
+        </div>
+    </div>
+</form>

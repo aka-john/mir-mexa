@@ -1,0 +1,105 @@
+<div class="form-group">
+    <label class="col-sm-2 control-label">Имя:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'user_info[name]',
+                    'value' => $this->user_info['name']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Email:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'user_info[email]',
+                    'value' => $this->user_info['email']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Телефон:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'user_info[phone]',
+                    'value' => $this->user_info['phone']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Город пользователя:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'user_info[city]',
+                    'value' => $this->user_info['city']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Город доставки:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('selectpicker', array(
+                    'array'=>$this->citys, 
+                    'required' => false, 
+                    'name' => 'user_info[city_delivery]',
+                    'selected' => $this->user_info['city_delivery'],
+                    'label_name' => 'name',
+                    'value_name' => 'id'
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Дом:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'user_info[house]',
+                    'value' => $this->user_info['house']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Квартира:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'user_info[kv]',
+                    'value' => $this->user_info['kv']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Улица:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'user_info[street]',
+                    'value' => $this->user_info['street']
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Комментарий:</label>
+    <div class="col-sm-3">
+        <?php echo $this->getExtension('textarea', array(
+                    'name' => 'user_info[comment]',
+                    'editor' => false,
+                    'attr' => array('rows' => 5),
+                    'value' => $this->user_info['comment']
+                )
+            ); 
+        ?>
+    </div>
+</div>

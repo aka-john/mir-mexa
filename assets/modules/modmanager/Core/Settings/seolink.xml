@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<config>
+    <active>
+        <item>
+            <label>Да</label>
+            <value>1</value>
+            <label_color>success</label_color>
+        </item>
+        <item>
+            <label>Нет</label>
+            <value>0</value>
+            <label_color>danger</label_color>
+        </item>
+    </active> 
+</config>

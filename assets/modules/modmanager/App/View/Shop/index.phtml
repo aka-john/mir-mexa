@@ -1,0 +1,172 @@
+<div id="art_breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="<?php echo $this->factory('router')->generate('Main', 'index'); ?>">Главная</a></li>
+        <li class="active">Все заказы</li>
+    </ul>
+</div>
+
+<div id="art_actionbar">
+    <a href="<?php echo $this->factory('router')->generate('Shop', 'create'); ?>" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Добавить заказ</a>
+    <button type="button" class="btn art_actionbar-scroll-top"><span class="glyphicon glyphicon-arrow-up"></span></button>
+</div>
+
+<div class="art_help_block text-muted">
+    
+</div>
+
+<div id="art_content-tab-content" class="tab-content">
+    <form action="<?php echo $this->factory('router')->generate('Shop', 'index'); ?>" method="post" class="art_data-grid-form">
+        <input type="hidden" name="grid_sort_by" value="<?php echo $this->factory('request')->getRequest('grid_sort_by'); ?>"/>
+        <input type="hidden" name="grid_sort_dir" value="<?php echo $this->factory('request')->getRequest('grid_sort_dir'); ?>"/>
+        <table class="table table-bordered table-condensed table-hover pull-left">
+            <thead>
+                <th name="id">
+                    <div class="pull-left">ID</div> 
+                    <div class="pull-right">
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-down" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'id' && $this->factory('request')->getRequest('grid_sort_by') == 'DESC'): ?>style="color:#428bca;"<?php endif; ?> data="DESC"></span> 
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-up" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'id' && $this->factory('request')->getRequest('grid_sort_by') == 'ASC'): ?>style="color:#428bca;"<?php endif; ?> data="ASC"></span>
+                    </div>
+                </th>
+                <th name="number">
+                    <div class="pull-left">Номер</div> 
+                    <div class="pull-right">
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-down" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'number' && $this->factory('request')->getRequest('grid_sort_by') == 'DESC'): ?>style="color:#428bca;"<?php endif; ?> data="DESC"></span> 
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-up" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'number' && $this->factory('request')->getRequest('grid_sort_by') == 'ASC'): ?>style="color:#428bca;"<?php endif; ?> data="ASC"></span>
+                    </div>
+                </th>
+                <th name="order_price">
+                    <div class="pull-left">Цена</div>
+                    <div class="pull-right">
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-down" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'order_price' && $this->factory('request')->getRequest('grid_sort_by') == 'DESC'): ?>style="color:#428bca;"<?php endif; ?> data="DESC"></span> 
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-up" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'order_price' && $this->factory('request')->getRequest('grid_sort_by') == 'ASC'): ?>style="color:#428bca;"<?php endif; ?> data="ASC"></span>
+                    </div>
+                </th>
+                <th name="delivery_price">
+                    <div class="pull-left">Доставка</div>
+                    <div class="pull-right">
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-down" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'delivery_price' && $this->factory('request')->getRequest('grid_sort_by') == 'DESC'): ?>style="color:#428bca;"<?php endif; ?> data="DESC"></span> 
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-up" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'delivery_price' && $this->factory('request')->getRequest('grid_sort_by') == 'ASC'): ?>style="color:#428bca;"<?php endif; ?> data="ASC"></span>
+                    </div>
+                </th>
+                <th name="payment_price">
+                    <div class="pull-left">Оплата</div>
+                    <div class="pull-right">
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-down" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'payment_price' && $this->factory('request')->getRequest('grid_sort_by') == 'DESC'): ?>style="color:#428bca;"<?php endif; ?> data="DESC"></span> 
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-up" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'payment_price' && $this->factory('request')->getRequest('grid_sort_by') == 'ASC'): ?>style="color:#428bca;"<?php endif; ?> data="ASC"></span>
+                    </div>
+                </th>
+                <th name="status">
+                    <div class="pull-left">Статус</div>
+                    <div class="pull-right">
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-down" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'status' && $this->factory('request')->getRequest('grid_sort_by') == 'DESC'): ?>style="color:#428bca;"<?php endif; ?> data="DESC"></span> 
+                        <span class="js_grid-sort-table glyphicon glyphicon-arrow-up" <?php if ($this->factory('request')->getRequest('grid_sort_dir') == 'status' && $this->factory('request')->getRequest('grid_sort_by') == 'ASC'): ?>style="color:#428bca;"<?php endif; ?> data="ASC"></span>
+                    </div>
+                </th>
+                <th class="text-center">Функции</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width: 65px;">
+                        <?php echo $this->getExtension('input', array(
+                                    'name' => 'shop[id]',
+                                    'value' => $this->factory('request')->getRequestObject('shop')->id
+                                )
+                            ); 
+                        ?>
+                    </td>
+                    <td>
+                        <?php echo $this->getExtension('input', array(
+                                    'name' => 'shop[number]',
+                                    'value' => $this->factory('request')->getRequestObject('shop')->number
+                                )
+                            ); 
+                        ?>
+                    </td>
+                    <td>
+                        <?php echo $this->getExtension('input', array( 
+                                    'name' => 'shop[order_price]',
+                                    'value' => $this->factory('request')->getRequestObject('shop')->order_price
+                                )
+                            ); 
+                        ?>
+                    </td>
+                    <td>
+                        <?php echo $this->getExtension('selectpicker', array(
+                                    'array'=>$this->factory('config')->loadConfigFile('shop')->getNode('delivery_price/item')->nodeToArray(), 
+                                    'required' => false, 
+                                    'name' => 'shop[delivery_price]',
+                                    'selected' => $this->factory('request')->getRequestObject('shop')->delivery_price
+                                )
+                            ); 
+                        ?>
+                    </td>
+                    <td>
+                        <?php echo $this->getExtension('selectpicker', array(
+                                    'array'=>$this->factory('config')->loadConfigFile('shop')->getNode('payment_price/item')->nodeToArray(), 
+                                    'required' => false, 
+                                    'name' => 'shop[payment_price]',
+                                    'selected' => $this->factory('request')->getRequestObject('shop')->payment_price
+                                )
+                            ); 
+                        ?>
+                    </td>
+                    <td>
+                        <?php echo $this->getExtension('selectpicker', array(
+                                    'array'=>$this->factory('config')->loadConfigFile('shop')->getNode('status/item')->nodeToArray(), 
+                                    'required' => false, 
+                                    'name' => 'shop[status]',
+                                    'selected' => $this->factory('request')->getRequestObject('shop')->status
+                                )
+                            ); 
+                        ?>
+                    </td>
+                    <td>
+                        <button class="btn btn-default" type="submit">Фильтровать</button>
+                        <a href="<?php echo $this->factory('router')->generate('Shop', 'index'); ?>" class="btn btn-default tooltip-top" title="Сбросить"><span class="glyphicon glyphicon-refresh"></span></a>
+                    </td>
+                </tr>
+                <?php if ($this->shops != null && count($this->shops) > 0): ?>
+                    <?php foreach ($this->shops as $key => $value): ?>
+                        <?php echo $this->display('Shop/index_item', array('shop' => $value)) ; ?>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr><td class="js_grid-count-th"><?php echo $this->factory('translator')->getTranslate('notfound')?></td></tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+        <div class="pull-left art_data-grid-pagin">
+            <?php echo $this->pagination; ?>
+        </div>
+        <div class="pull-right art_data-grid-view">
+            <span>выбрано <?php echo $this->factory('request')->getRequest('grid_display_view'); ?> из <?php echo $this->factory('request')->getRequest('grid_total_view'); ?></span>
+            <?php echo $this->getExtension('selectpicker', array(
+                        'array'=>$this->factory('config')->loadConfigFile('grid')->getNode('display/item')->nodeToArray(), 
+                        'required' => true, 
+                        'name' => 'grid_display',
+                        'class' => 'js_grid-change-display', 
+                        'width' => '190px',
+                        'selected' => $this->factory('request')->getRequest('grid_display')
+                    )
+                ); 
+            ?>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(document).on("click", ".ajax_art-remove-resource", function(){
+        _this = $(this);
+        $.ajax({
+            url : "<?php echo $this->factory('router')->generate('Shop', 'remove'); ?>",
+            type : "POST",
+            data : {
+                "shop_id" : _this.attr('data')
+            },
+            cache : false,
+            success : function(html) {
+                $('tr[id='+_this.attr('data')+']').remove();
+            }
+        });
+        return false;
+    });
+</script>

@@ -1,0 +1,67 @@
+<?xml version="1.0" standalone="yes"?>
+<config>
+    <status>
+       <item>
+            <label>Нет статуса</label>
+            <value>0</value>
+            <label_color>info</label_color>
+            <class>info</class>
+        </item>
+        <item>
+            <label>Новый</label>
+            <value>1</value>
+            <label_color>success</label_color>
+            <class>new</class>
+        </item>
+        <item>
+            <label>Sale</label>
+            <value>2</value>
+            <label_color>danger</label_color>
+            <class>action</class>
+        </item>
+		 <item>
+            <label>Sale NEW</label>
+            <value>3</value>
+            <label_color>danger</label_color>
+            <class>action_new</class>
+        </item>
+    </status>
+    <presence>
+        <item>
+            <label>Есть в наличии</label>
+            <value>1</value>
+            <label_color>success</label_color>
+        </item>
+        <item>
+            <label>Нет в наличии</label>
+            <value>2</value>
+            <label_color>danger</label_color>
+        </item>
+    </presence>
+    <published>
+        <item>
+            <label>Да</label>
+            <value>1</value>
+            <label_color>success</label_color>
+        </item>
+        <item>
+            <label>Нет</label>
+            <value>0</value>
+            <label_color>danger</label_color>
+        </item>
+    </published>
+    <catalog_view>
+        <item>
+            <label>50</label>
+            <value>50</value>
+        </item>
+        <item>
+            <label>100</label>
+            <value>100</value>
+        </item>
+        <item>
+            <label>150</label>
+            <value>150</value>
+        </item>
+    </catalog_view>
+</config>

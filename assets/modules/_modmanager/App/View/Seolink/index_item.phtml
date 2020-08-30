@@ -1,0 +1,21 @@
+<tr id="<?php echo $this->link['id']; ?>">
+    <td>
+        <a href="<?php echo $this->factory('router')->generate('Seolink', 'edit', array('link_id' => $this->link['id'])); ?>"><?php echo $this->link['id']; ?></a>
+    </td>
+    <td>
+        <a href="<?php echo $this->factory('router')->generate('Seolink', 'edit', array('link_id' => $this->link['id'])); ?>"><?php echo $this->link['url']; ?></a>
+    </td>
+    <td class="text-center">
+        <?php echo $this->getExtension('label', array( 
+                    'array' => $this->factory('config')->loadConfigFile('seolink')->getNode('active/item')->nodeToArray(), 
+                    'value' => $this->link['active']
+                )
+            ); 
+        ?>
+    </td>
+    <td class="text-center">
+        <a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].$this->link['url']; ?>" target="_blank" class="btn btn-info tooltip-top" title="Просмотр"><span class="glyphicon glyphicon-arrow-right"></span></a>
+        <a href="<?php echo $this->factory('router')->generate('Seolink', 'edit', array('link_id' => $this->link['id'])); ?>" class="btn btn-primary tooltip-top" title="Редактировать"><span class="glyphicon glyphicon-edit"></span></a>
+        <button type="button" class="btn btn-danger popover-dismiss" data-toggle="popover" data-placement="left" data-content="<div class='art_remove-popover'><button type='button' class='btn btn-success pull-left ajax_art-remove-resource' data='<?php echo $this->link['id']; ?>'>Да</button><button type='button' class='btn btn-danger pull-right'>Нет</button></div>" title="Вы действительно хотите удалить?"><span class="glyphicon glyphicon-remove"></span></button>
+    </td>
+</tr>

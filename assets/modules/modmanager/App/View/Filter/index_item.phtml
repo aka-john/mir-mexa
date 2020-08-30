@@ -1,0 +1,25 @@
+<tr id="<?php echo $this->filter['id']; ?>" class="<?php echo $this->factory('config')->loadConfigFile('filter')->getNode('status/item/value[.="'.$this->filter['status'].'"]/parent::*')->getVal('label_color') ?>">
+    <td>
+        <a href="<?php echo $this->factory('router')->generate('Filter', 'edit', array('filter_id' => $this->filter['id'])); ?>"><?php echo $this->filter['id']; ?></a>
+    </td>
+    <td>
+        <?php echo $this->filter['name']; ?>
+    </td>
+    <td>
+        <?php echo $this->filter['position']; ?>
+    </td>
+    <td class="text-center">
+        <?php echo $this->getExtension('label', array( 
+                    'array' => $this->factory('config')->loadConfigFile('filter')->getNode('type/item')->nodeToArray(), 
+                    'value' => $this->filter['type']
+                )
+            ); 
+        ?>
+    </td>
+    <td class="text-center">
+        <a href="<?php echo $this->factory('router')->generate('Filter', 'edit', array('filter_id' => $this->filter['id'])); ?>" class="btn btn-primary tooltip-top" title="Редактировать"><span class="glyphicon glyphicon-edit"></span></a>
+        <?php if(!in_array($this->filter['id'], array(14))):?>
+            <button type="button" class="btn btn-danger popover-dismiss" data-toggle="popover" data-placement="left" data-content="<div class='art_remove-popover'><button type='button' class='btn btn-success pull-left ajax_art-remove-resource' data='<?php echo $this->filter['id']; ?>'>Да</button><button type='button' class='btn btn-danger pull-right'>Нет</button></div>" title="Вы действительно хотите удалить?"><span class="glyphicon glyphicon-remove"></span></button>
+        <?php endif ?>
+    </td>
+</tr>

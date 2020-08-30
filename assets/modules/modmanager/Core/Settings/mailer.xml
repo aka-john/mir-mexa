@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes"?>
+<config>
+    <letter_type>
+        <item>
+            <label>Шаблон</label>
+            <value>1</value>
+            <label_color>warning</label_color>
+        </item>
+        <item>
+            <label>Чанк</label>
+            <value>2</value>
+            <label_color>info</label_color>
+        </item>
+        <item>
+            <label>Ресурс</label>
+            <value>3</value>
+            <label_color>success</label_color>
+        </item>
+    </letter_type>
+    <subscriber_status>
+        <item>
+            <label>Подтвержден</label>
+            <value>1</value>
+            <label_color>success</label_color>
+        </item>
+        <item>
+            <label>Отклонено</label>
+            <value>2</value>
+            <label_color>warning</label_color>
+        </item>
+    </subscriber_status>
+</config>

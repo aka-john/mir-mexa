@@ -1,0 +1,73 @@
+<?php
+    $request = isset($params['name']) ? $this->factory('request')->getRequest($params['name']) : '';
+    $attr = '';
+    $style = '';
+    $id = '';
+    $name = '';
+    $class = 'input-group date bootstrap_datetimepicker ';
+    $type = 'text';
+    $val = isset($params['name']) && $request != '' ? $this->factory('request')->getRequest($params['name']) : '';
+    $format = 'YYYY-MM-DD hh:mm';
+    $placeholder = '';
+?>
+
+<?php if (isset($params['attr']) && $params['attr'] != false): ?>
+    <?php foreach ($params['attr'] as $key => $value): ?>
+        <?php if (is_numeric($key)): ?>
+            <?php $attr .= ' '.$value; ?> 
+        <?php else: ?>      
+            <?php $attr .= ' '.$key.'="'.$value.'" '; ?>
+        <?php endif; ?> 
+    <?php endforeach; ?>
+<?php endif; ?>
+
+<?php if (isset($params['class']) && $params['class'] != ''): ?>
+    <?php $class .= $params['class']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['id']) && $params['id'] != ''): ?>
+    <?php $id = 'id="'.$params['id'].'"'; ?>
+<?php endif; ?>
+
+<?php if (isset($params['style']) && $params['style'] != ''): ?>
+    <?php $style = $params['style']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['name']) && $params['name'] != ''): ?>
+    <?php $name = 'name="'.$params['name'].'"'; ?>
+<?php endif; ?>
+
+<?php if (isset($params['value']) && $params['value'] != ''): ?>
+    <?php $val = 'value="'.($val == '' ? $params['value'] : $val).'"'; ?>
+<?php endif; ?>
+
+<?php if (isset($params['type']) && $params['type'] != ''): ?>
+    <?php $type = $params['type']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['format']) && $params['format'] != ''): ?>
+    <?php $format = $params['format']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['placeholder']) && $params['placeholder'] != ''): ?>
+    <?php $placeholder = 'placeholder="'.$params['placeholder'].'"'; ?>
+<?php endif; ?>
+
+<?php if (isset($params['errors']) && array_key_exists($params['name'], $params['errors'])): ?>
+    <div class="has-error">
+        <div <?php echo $style; ?> <?php echo $id; ?>>
+            <div class="<?php echo $class; ?>" data-date-format="<?php echo $format; ?>">
+                <input type="<?php echo $type; ?>" class="form-control bootstrap_datetimepicker" data-date-format="<?php echo $format; ?>" <?php echo $name; ?> <?php echo $val; ?> <?php echo $attr; ?> <?php echo $placeholder; ?>/>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            </div>
+        </div>
+        <span class="help-block text-danger"><?php echo $params['errors'][$params['name']]; ?></span>
+    </div>
+<?php else: ?>
+    <div <?php echo $style; ?> <?php echo $id; ?>>
+        <div class="<?php echo $class; ?>" data-date-format="<?php echo $format; ?>">
+            <input type="<?php echo $type; ?>" class="form-control bootstrap_datetimepicker" data-date-format="<?php echo $format; ?>" <?php echo $name; ?> <?php echo $val; ?> <?php echo $attr; ?> <?php echo $placeholder; ?>/>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+        </div>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <?php echo $this->display("Base/head"); ?>
+    <body>
+        <?php echo $this->display("Base/top-navbar"); ?>
+        <div id="art_conteiner">
+            <div id="art_content">
+                <?php echo $this->display("Base/flesh_message"); ?>
+                <?php echo $this->content; ?>
+            </div>
+            <?php echo $this->display("Base/footer"); ?>
+        </div>
+    </body>
+</html>

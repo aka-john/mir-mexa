@@ -1,0 +1,72 @@
+<?php
+    $request = isset($params['name']) ? $this->factory('request')->getRequest($params['name']) : '';
+    $attr = '';
+    $style = '';
+    $id = '';
+    $name = '';
+    $class = 'form-control bootstrap_spin ';
+    $type = 'text';
+    $val = isset($params['value']) && $request != '' ? $this->factory('request')->getRequest($params['value']) : '';
+    $placeholder = '';
+?>
+
+<?php if (isset($params['attr']) && $params['attr'] != false): ?>
+    <?php foreach ($params['attr'] as $key => $value): ?>
+        <?php $attr .= $key.'="'.$value.'" '; ?> 
+    <?php endforeach; ?>
+<?php endif; ?>
+
+<?php if (isset($params['class']) && $params['class'] != ''): ?>
+    <?php $class .= $params['class']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['id']) && $params['id'] != ''): ?>
+    <?php $id = 'id="'.$params['id'].'"'; ?>
+<?php endif; ?>
+
+<?php if (isset($params['style']) && $params['style'] != ''): ?>
+    <?php $style = $params['style']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['name']) && $params['name'] != ''): ?>
+    <?php $name = 'name="'.$params['name'].'"'; ?>
+<?php endif; ?>
+
+<?php if (isset($params['value']) && $params['value'] != ''): ?>
+    <?php $val = 'value="'.($val == '' ? $params['value'] : $val).'"'; ?>
+<?php endif; ?>
+
+<?php if (isset($params['type']) && $params['type'] != ''): ?>
+    <?php $type = $params['type']; ?>
+<?php endif; ?>
+
+<?php if (isset($params['placeholder']) && $params['placeholder'] != ''): ?>
+    <?php $placeholder = 'placeholder="'.$params['placeholder'].'"'; ?>
+<?php endif; ?>
+
+<?php if (isset($params['errors']) && array_key_exists($params['name'], $params['errors'])): ?>
+    <div class="has-error">
+        <input 
+            type="<?php echo $type; ?>" 
+            class="<?php echo $class; ?>" 
+            <?php echo $id; ?> 
+            <?php echo $name; ?> 
+            <?php echo $style; ?> 
+            <?php echo $attr; ?> 
+            <?php echo $val; ?>
+            <?php echo $placeholder; ?>
+        >
+        <span class="help-block text-danger"><?php echo $params['errors'][$params['name']]; ?></span>
+    </div>
+<?php else: ?>
+    <input 
+        type="<?php echo $type; ?>" 
+        class="<?php echo $class; ?>" 
+        <?php echo $id; ?> 
+        <?php echo $name; ?> 
+        <?php echo $style; ?> 
+        <?php echo $attr; ?> 
+        <?php echo $val; ?>
+        <?php echo $placeholder; ?>
+    >
+<?php endif; ?>

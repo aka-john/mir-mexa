@@ -1,0 +1,59 @@
+<div class="art_collection-group">
+    <div class="form-group">
+        <label class="col-sm-1 control-label">ID товара:</label>
+        <div class="col-sm-3">
+            <a href="<?php echo $this->factory('router')->generate('Product', 'edit', array('product_id' => $this->row['id'])); ?>"><?php echo $this->row['id']; ?></a>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">Товар:</label>
+        <div class="col-sm-3">
+            <?php echo $this->getExtension('selectpicker', array(
+                        'array'=>$this->products, 
+                        'required' => true, 
+                        'name' => 'orders['.($this->iteration !== '' ? $this->iteration : '__counter__').'][product]',
+                        'selected' => $this->row['id'],
+                        'label_name' => 'name',
+                        'value_name' => 'id'
+                    )
+                ); 
+            ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">Размер:</label>
+        <div class="col-sm-3">
+            <?php echo $this->getExtension('selectpicker', array(
+                        'array'=>$this->factory('config')->loadConfigFile('filter')->getNode('size/item')->nodeToArray(), 
+                        'name' => 'orders['.($this->iteration !== '' ? $this->iteration : '__counter__').'][size]',
+                        'selected' => $this->row['size_id']
+                    )
+                ); 
+            ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">Цена:</label>
+        <div class="col-sm-3">
+            <?php echo $this->getExtension('input', array(
+                        'name' => 'orders['.($this->iteration !== '' ? $this->iteration : '__counter__').'][price]',
+                        'value' => $this->row['price']
+                    )
+                ); 
+            ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">Кол-во:</label>
+        <div class="col-sm-3">
+            <?php echo $this->getExtension('input', array(
+                        'name' => 'orders['.($this->iteration !== '' ? $this->iteration : '__counter__').'][amount]',
+                        'value' => $this->row['amount']
+                    )
+                ); 
+            ?>
+        </div>
+    </div>
+    <a href="<?php echo $this->factory('router')->generate('Shop', 'removeOrder', array('value_id' => $this->iteration, 'shop_id' => $this->shop['id'])); ?>" data="<?php echo $this->iteration; ?>" class="btn btn-danger js_art_remove-collection" style="margin-bottom: 5px;"><span class="glyphicon glyphicon-trash"></span> Удалить товар из заказа</a>
+    <a target="_blank" href="<?php echo $this->modx->makeUrl(intval($this->row['modx_id'])).$this->row['alias']; ?>" class="btn btn-primary" style="margin-bottom: 5px;"><span class="glyphicon glyphicon-file"></span> Просмотр</a>
+</div>

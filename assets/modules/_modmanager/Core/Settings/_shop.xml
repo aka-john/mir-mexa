@@ -1,0 +1,74 @@
+<?xml version="1.0" standalone="yes"?>
+<config>
+    <status>
+        <item>
+            <label>Новый</label>
+            <value>1</value>
+            <label_color>warning</label_color>
+        </item>
+        <item>
+            <label>Ожидает</label>
+            <value>2</value>
+            <label_color>info</label_color>
+        </item>
+        <item>
+            <label>Оплачен</label>
+            <value>3</value>
+            <label_color>success</label_color>
+        </item>
+        <item>
+            <label>Доставлен</label>
+            <value>4</value>
+            <label_color>primary</label_color>
+        </item>
+        <item>
+            <label>Отменен</label>
+            <value>5</value>
+            <label_color>danger</label_color>
+        </item>
+        <item>
+            <label>Ошибка</label>
+            <value>6</value>
+            <label_color>danger</label_color>
+        </item>
+        <item>
+            <label>Оплачено LiqPay</label>
+            <value>7</value>
+            <label_color>warning</label_color>
+        </item>
+    </status>
+    <delivery_method>
+        <item>
+            <label>Самовывоз</label>
+            <value>1</value>
+            <label_color>warning</label_color>
+        </item>
+        <item>
+            <label>Новая почта</label>
+            <value>2</value>
+            <label_color>info</label_color>
+        </item>
+        <item>
+            <label>Курьером новой почты</label>
+            <value>3</value>
+            <label_color>primary</label_color>
+        </item>
+    </delivery_method>
+    <pay_method>
+        <item>
+            <label>Наложеный платеж</label>
+            <value>1</value>
+            <label_color>warning</label_color>
+        </item>
+        <item>
+            <label>По счету</label>
+            <value>2</value>
+            <label_color>primary</label_color>
+        </item>
+        <item>
+            <label>Liqpay</label>
+            <value>3</value>
+            <label_color>info</label_color>
+        </item>
+    </pay_method>
+</config>

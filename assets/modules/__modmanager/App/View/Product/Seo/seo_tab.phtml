@@ -1,0 +1,72 @@
+<div class="form-group">
+    <label class="col-sm-1 control-label">Title:</label>
+    <div class="col-sm-4">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'seo[title]',
+                    'value' => $this->seo['title'],
+                    'placeholder' => 'Title'
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-1 control-label">Description:</label>
+    <div class="col-sm-4">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'seo[description]',
+                    'value' => $this->seo['description'],
+                    'placeholder' => 'Description'
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-1 control-label">Keywords:</label>
+    <div class="col-sm-4">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'seo[keywords]',
+                    'value' => $this->seo['keywords'],
+                    'placeholder' => 'Keywords'
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-1 control-label">Robots:</label>
+    <div class="col-sm-4">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'seo[robots]',
+                    'value' => $this->seo['robots'],
+                    'placeholder' => 'Robots'
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-1 control-label">Canonical:</label>
+    <div class="col-sm-4">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'seo[canonical]',
+                    'value' => $this->seo['canonical'],
+                    'placeholder' => 'Canonical'
+                )
+            ); 
+        ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-1 control-label">Analytics:</label>
+    <div class="col-sm-4">
+        <?php echo $this->getExtension('input', array(
+                    'name' => 'seo[analytics]',
+                    'value' => $this->seo['analytics'],
+                    'placeholder' => 'Analytics'
+                )
+            ); 
+        ?>
+    </div>
+</div>

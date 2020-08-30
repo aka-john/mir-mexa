@@ -1,0 +1,33 @@
+<div id="art_breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="<?php echo $this->factory('router')->generate('Main', 'index'); ?>">Главная</a></li>
+        <li><a href="<?php echo $this->factory('router')->generate('Shop', 'index'); ?>">Все заказы</a></li>
+        <li class="active">Создание заказа</li>
+    </ul>
+</div>
+
+<div id="art_actionbar">
+    <a href="<?php echo CRM_GET_REFERER_URL(); ?>" class="btn btn-danger"><span class="glyphicon glyphicon-arrow-left"></span> Назад</a>
+    <button type="button" class="btn btn-success js_submitForm"><span class="glyphicon glyphicon-plus"></span> Добавить</button>
+    <button type="button" class="btn art_actionbar-scroll-top"><span class="glyphicon glyphicon-arrow-up"></span></button>
+</div>
+
+<ul class="nav nav-tabs" id="art_content-tab-navigation">
+    <li class="active"><a href="#shop">Информация</a></li>
+    <li><a href="#product">Товары</a></li>
+    <li><a href="#user">Данные покупателя</a></li>
+</ul>
+
+<form action="<?php echo $this->factory('router')->generate('Shop', 'create'); ?>" method="POST" enctype="multipart/form-data" class="form-horizontal art_data-grid-form">
+    <div id="art_content-tab-content" class="tab-content">
+        <div class="tab-pane active" id="shop">
+            <?php echo $this->display('Shop/shop_tab', array('shop' => $this->factory('request')->getRequest())) ; ?>
+        </div>
+        <div class="tab-pane" id="product">
+            <?php echo $this->display('Shop/Product/product_tab') ; ?>
+        </div>
+        <div class="tab-pane" id="user">
+            <?php echo $this->display('Shop/User/user_tab') ; ?>
+        </div>
+    </div>
+</form>

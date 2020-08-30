@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="yes"?>
+<config>
+    <display>
+        <item>
+            <label>по 20</label>
+            <value>20</value>
+        </item>
+        <item>
+            <label>по 40</label>
+            <value>40</value>
+        </item>
+        <item>
+            <label>по 60</label>
+            <value>60</value>
+        </item>
+        <item>
+            <label>по 80</label>
+            <value>80</value>
+        </item>
+        <item>
+            <label>по 100</label>
+            <value>100</value>
+        </item>
+        <item>
+            <label>Все</label>
+            <value>999999</value>
+        </item>
+    </display>
+</config>

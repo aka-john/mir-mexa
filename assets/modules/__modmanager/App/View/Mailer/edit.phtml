@@ -1,0 +1,26 @@
+<div id="art_breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="<?php echo $this->factory('router')->generate('Main', 'index'); ?>">Главная</a></li>
+        <li><a href="<?php echo $this->factory('router')->generate('Mailer', 'indexSubscriber'); ?>">Все подписчики</a></li>
+        <li class="active">Редактирование подписчика</li>
+    </ul>
+</div>
+
+<div id="art_actionbar">
+    <a href="<?php echo CRM_GET_REFERER_URL(); ?>" class="btn btn-danger"><span class="glyphicon glyphicon-arrow-left"></span> Назад</a>
+    <button type="button" class="btn btn-success js_submitForm"><span class="glyphicon glyphicon-ok"></span> Обновить</button>
+    <button type="button" class="btn art_actionbar-scroll-top"><span class="glyphicon glyphicon-arrow-up"></span></button>
+</div>
+
+<ul class="nav nav-tabs" id="art_content-tab-navigation">
+    <li class="active"><a href="#subscriber">Информация</a></li>
+    <li class="art_help-block"><span class="text-muted">ID - <?php echo $this->subscriber['id']; ?></span></li>
+</ul>
+
+<form action="<?php echo $this->factory('router')->generate('Mailer', 'editSubscriber', array('subscriber_id' => $this->subscriber['id'])); ?>" method="POST" enctype="multipart/form-data" class="form-horizontal art_data-grid-form">
+    <div id="art_content-tab-content" class="tab-content">
+        <div class="tab-pane active" id="subscriber">
+            <?php echo $this->display('Mailer/subscriber_tab', array('subscriber' => $this->subscriber)) ; ?>
+        </div>
+    </div>
+</form>
